@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlaayerControler : MonoBehaviour
+public class PlayerControler : MonoBehaviour
 {
     PlayerInput playerInput;
     InputAction jumpAction;
@@ -11,8 +11,11 @@ public class PlaayerControler : MonoBehaviour
     [SerializeField]float jumpPower=10f;
     [SerializeField] int jumpCount=1;
     int nowJumpCount;
+    [SerializeField]int playerHP=3;
     Rigidbody prayerRb;
     Vector3 direction;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,10 +65,10 @@ public class PlaayerControler : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Space)&&(nowJumpCount>0))
         {
-            /*
+            
             prayerRb.velocity = Vector3.up * jumpPower;
             nowJumpCount--;
-            */
+            
             //prayerRb.AddForce(new Vector3(0,jumpPower,0),ForceMode.Impulse);
         }
         #endregion
@@ -88,9 +91,24 @@ public class PlaayerControler : MonoBehaviour
    
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Grand"))
+        string tagname=collision.gameObject.tag;
+        switch(tagname)
         {
-            nowJumpCount=jumpCount;
-        }
+            case "Grand":
+                nowJumpCount=jumpCount;
+                break;
+            case "Bullet":
+                playerHP--;
+                break;
+            default:
+                break;
+        }    
     }
+
+    /*外からダメージ判定を呼ぶ用ダメージに大きさを持たせる時
+    public void Damege(int _damege)
+    {
+        playerHP-=_damege;
+    }
+    */
 }
