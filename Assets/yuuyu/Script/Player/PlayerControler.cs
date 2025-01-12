@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerControler : MonoBehaviour
 {
     PlayerInput playerInput;
-    InputAction jumpAction;
+    //InputAction jumpAction;
     [SerializeField]float moveSpeed=2;
     [SerializeField]float jumpPower=10f;
     [SerializeField] int jumpCount=1;
@@ -26,7 +26,7 @@ public class PlayerControler : MonoBehaviour
     void Awake()
     {
         playerInput=this.GetComponent<PlayerInput>();
-        jumpAction=playerInput.actions["Jump"];
+        //jumpAction=playerInput.actions["Jump"];
     }
 
     void OnEnable()

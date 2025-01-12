@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SelectStagManager : MonoBehaviour
+public class SelectStageManager : MonoBehaviour
 {
-    int nowStageTileNum=0;  //今どこのStageTileにいるか
+    public static int nowStageTileNum=0;  //今どこのStageTileにいるか
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +29,11 @@ public class SelectStagManager : MonoBehaviour
                 Debug.Log("1");
                 SceneManager.LoadScene("Stage1");
                 break;
-            case 1:
+            case 2:
                 Debug.Log("2");
                 SceneManager.LoadScene("Stage2");
                 break;
-            default
+            default:
                 break;
         } 
     }

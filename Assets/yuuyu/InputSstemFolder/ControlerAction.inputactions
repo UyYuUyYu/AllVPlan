@@ -48,6 +48,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "SelectStage",
+            "id": "69f637f7-f10c-490a-88f3-03159ee62473",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "254deff7-3cce-4591-9f89-9eaa0c9de5fe",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b328e7ef-35f6-41c5-80dd-31009bd9bfe8",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
