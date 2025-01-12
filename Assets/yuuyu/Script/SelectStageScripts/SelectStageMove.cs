@@ -12,13 +12,12 @@ public class SelectStageMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SelectStageManager.nowStageTileNum=0;
+        //SelectStageManager.nowStageTileNum=0;
     }
     void Awake()
     {
         playerInput=this.GetComponent<PlayerInput>();
     }
-
     void OnEnable()
     {
         playerInput.actions["Move"].performed+=OnMove;
@@ -69,9 +68,7 @@ public class SelectStageMove : MonoBehaviour
         {
             print("aaa");
             DotoweenMove(nowNum,nextNum);
-       
         }
-        
        
     }
     void DotoweenMove(int _nowNum,int _nextNum)
@@ -85,14 +82,27 @@ public class SelectStageMove : MonoBehaviour
         duration: 4f,
         pathType: PathType.CatmullRom
         )
-        .SetLookAt(0.05f, Vector3.forward)
         .OnComplete(()=>isMoveOK=true);
     }
 
+    //ゲームパッドでの入力
     void OnMove(InputAction.CallbackContext context)
     {
         var value=context.ReadValue<Vector2>();
-        float direction=value.x;
-
+        float directionX=value.x;
+        float directionY=value.y;
+        //一旦右方向だけ
+        if(isMoveOK)
+        {
+            isMoveOK=false;
+            if(directionX>0)
+            {
+                MoveNextStageTile(1);
+            }
+            else
+            {
+                MoveNextStageTile(-1);
+            }
+        }
     }
 }
