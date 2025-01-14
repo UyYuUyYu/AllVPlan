@@ -6,13 +6,15 @@ using UnityEngine.InputSystem;
 
 public class SelectStageMove : MonoBehaviour
 {
+    SelectStageManager selectStageManager;
     PlayerInput playerInput;
     [SerializeField] GameObject[] stageTiles;
-    bool isMoveOK=true;
+    public bool isMoveOK=true;
     // Start is called before the first frame update
     void Start()
     {
         //SelectStageManager.nowStageTileNum=0;
+        selectStageManager=GameObject.Find("SelectStageManager").GetComponent<SelectStageManager>();
     }
     void Awake()
     {
@@ -32,33 +34,39 @@ public class SelectStageMove : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.D)&&isMoveOK)
         {
-            isMoveOK=false;
-            Nextnum();
+            CheckOnStageTile(false);
+            MoveNextStageTile(1);
         }
         if(Input.GetKeyDown(KeyCode.A)&&isMoveOK)
         {
-            isMoveOK=false;
-            Bucknum();
+            CheckOnStageTile(false);
+            MoveNextStageTile(-1);
         }
     }
-
-    [ContextMenu("numa")]
-    public void Nextnum()
+    //ゲームパッドでの入力
+    void OnMove(InputAction.CallbackContext context)
     {
-        MoveNextStageTile(1);
+        var value=context.ReadValue<Vector2>();
+        float directionX=value.x;
+        float directionY=value.y;
+        //一旦右方向だけ
+        if(isMoveOK)
+        {
+            CheckOnStageTile(false);
+            if(directionX>0)
+            {
+                MoveNextStageTile(1);
+            }
+            else
+            {
+                MoveNextStageTile(-1);
+            }
+        }
     }
-
-    [ContextMenu("numb")]
-    public void Bucknum()
-    {
-        MoveNextStageTile(-1);
-    }
-
 
     //引数に前に進むか後ろに進むかで1と-1を代入すると動く
     public void MoveNextStageTile(int _nextNum)
     {
-       
         int nowNum = SelectStageManager.nowStageTileNum;
         int nextNum = Mathf.Clamp(nowNum+_nextNum, 0, stageTiles.Length - 1);
         SelectStageManager.nowStageTileNum=nextNum;
@@ -71,9 +79,25 @@ public class SelectStageMove : MonoBehaviour
         }
        
     }
+     
+    //stageTIleの上にのる時に呼ばれて、移動中か移動中ジャないかを教える
+    void CheckOnStageTile(bool _isOnStageTile)
+    {
+        isMoveOK=_isOnStageTile;
+        selectStageManager.ChangeActiveStageDecisionUI(_isOnStageTile);
+    }
     void DotoweenMove(int _nowNum,int _nextNum)
     {
-        print(_nowNum+"と"+_nextNum);
+        this.transform.DOPath(
+            path: new Vector3[] {
+                new Vector3(stageTiles[_nowNum].transform.position.x, this.transform.position.y, stageTiles[_nowNum].transform.position.z),
+                new Vector3(stageTiles[_nextNum].transform.position.x, this.transform.position.y, stageTiles[_nextNum].transform.position.z)
+            },
+            duration: 4f,
+            pathType: PathType.CatmullRom
+            )
+            .OnComplete(()=>CheckOnStageTile(true));
+        /*
         this.transform.DOPath(
         path: new Vector3[] {
             new Vector3(stageTiles[_nowNum].transform.position.x, this.transform.position.y, stageTiles[_nowNum].transform.position.z),
@@ -83,26 +107,9 @@ public class SelectStageMove : MonoBehaviour
         pathType: PathType.CatmullRom
         )
         .OnComplete(()=>isMoveOK=true);
+        */
     }
 
-    //ゲームパッドでの入力
-    void OnMove(InputAction.CallbackContext context)
-    {
-        var value=context.ReadValue<Vector2>();
-        float directionX=value.x;
-        float directionY=value.y;
-        //一旦右方向だけ
-        if(isMoveOK)
-        {
-            isMoveOK=false;
-            if(directionX>0)
-            {
-                MoveNextStageTile(1);
-            }
-            else
-            {
-                MoveNextStageTile(-1);
-            }
-        }
-    }
+
+   
 }
