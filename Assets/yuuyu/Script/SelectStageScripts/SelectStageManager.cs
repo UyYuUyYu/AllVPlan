@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class SelectStageManager : MonoBehaviour
 {
     public static int nowStageTileNum=0;  //今どこのStageTileにいるか
-
+    PlayerInput playerInput;
     [SerializeField] GameObject stageDecisionUI;
     bool isOnSelectStageTile=true;
     // Start is called before the first frame update
@@ -14,15 +15,35 @@ public class SelectStageManager : MonoBehaviour
     {
         
     }
+    void Awake()
+    {
+        playerInput=this.GetComponent<PlayerInput>();
+    }
+    void OnEnable()
+    {
+        playerInput.actions["Select"].performed+=OnChangeSecene;
+    }
+    void OnDisable()
+    {
+         playerInput.actions["Select"].performed-=OnChangeSecene;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.E)&&isOnSelectStageTile==true)
+        if(Input.GetKey(KeyCode.E)&&isOnSelectStageTile)
         {
             ScneChange();
         }
     }
+    //コントローラーのボタンの東側が押されたら
+    void OnChangeSecene(InputAction.CallbackContext context)
+    {
+       if(isOnSelectStageTile)
+       {
+            ScneChange();
+       }
+    }    
     //今いるステージタイルを参照してシーン切り替え
     public void ScneChange()
     {

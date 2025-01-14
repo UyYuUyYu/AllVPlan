@@ -65,7 +65,6 @@ public class PlayerControler : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Space)&&(nowJumpCount>0))
         {
-            
             prayerRb.velocity = Vector3.up * jumpPower;
             nowJumpCount--;
             
@@ -74,6 +73,7 @@ public class PlayerControler : MonoBehaviour
         #endregion
 
     }
+    
     void OnMove(InputAction.CallbackContext context)
     {
         var value=context.ReadValue<Vector2>();
