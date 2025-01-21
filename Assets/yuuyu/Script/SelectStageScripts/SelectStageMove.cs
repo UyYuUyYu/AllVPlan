@@ -97,17 +97,7 @@ public class SelectStageMove : MonoBehaviour
             pathType: PathType.CatmullRom
             )
             .OnComplete(()=>CheckOnStageTile(true));
-        /*
-        this.transform.DOPath(
-        path: new Vector3[] {
-            new Vector3(stageTiles[_nowNum].transform.position.x, this.transform.position.y, stageTiles[_nowNum].transform.position.z),
-            new Vector3(stageTiles[_nextNum].transform.position.x, this.transform.position.y, stageTiles[_nextNum].transform.position.z)
-        },
-        duration: 4f,
-        pathType: PathType.CatmullRom
-        )
-        .OnComplete(()=>isMoveOK=true);
-        */
+        
     }
 
 
