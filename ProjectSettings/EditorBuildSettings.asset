@@ -4,5 +4,15 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/yuuyu/Scene/Stage1.unity
+    guid: e3d5b71c0f7664f129e0e2a6cb35fc23
+  - enabled: 1
+    path: Assets/yuuyu/Scene/Stage2.unity
+    guid: 65ca01f0dba4d40ae9685f2806f934d5
+  - enabled: 1
+    path: Assets/yuuyu/Scene/SelectStage.unity
+    guid: d04758c60333842ecbf2e0d26578b5c2
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 9e2b5932c74b64010804179b7adaf23a, type: 2}
