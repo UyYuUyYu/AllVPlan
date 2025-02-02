@@ -7,11 +7,13 @@ public class GameUIManager : MonoBehaviour
 {
 
     [SerializeField] GameObject[] KoeruPowerPanel;
+    [SerializeField] GameObject tutorialUIPanel;
+    bool isTutorialUIPanel=false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       // print(()=>isTutorialUIPanel=!isTutorialUIPanel);
     }
 
     // Update is called once per frame
@@ -33,6 +35,20 @@ public class GameUIManager : MonoBehaviour
        
     }
 
-    
+    void ChangeTutorialPanel()
+    {
+        if(isTutorialUIPanel)
+        {
+            isTutorialUIPanel=false;
+            //print(()=>isTutorialUIPanel=!isTutorialUIPanel);
+            tutorialUIPanel.SetActive(isTutorialUIPanel);
+        }  
+        else
+        {
+            isTutorialUIPanel=true;
+            tutorialUIPanel.SetActive(isTutorialUIPanel);
+        }
+            
+    }
 
 }
