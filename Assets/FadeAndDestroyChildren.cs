@@ -12,6 +12,10 @@ public class FadeAndDestroyChildren : MonoBehaviour
     /// 任意のタイミングでこのメソッドを呼び出してください。
     /// </summary>
     /// 
+    /// 
+    /// <summary>
+    /// ここupdateから変えたい
+    /// </summary>
     public void Update()
     {
         FadeOutChildren();
