@@ -1,0 +1,1 @@
+If you would like to use the post-processing layer, please set it up as per Unity's documentation and then assign the volume provided with the package.
