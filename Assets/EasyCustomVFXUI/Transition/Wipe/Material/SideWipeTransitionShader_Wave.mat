@@ -9,8 +9,6 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: SideWipeTransitionShader_Wave
   m_Shader: {fileID: -6465566751694194690, guid: 9f3d8164d864b134c881d4956e8e2842, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: 9f3d8164d864b134c881d4956e8e2842, type: 3}
-  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DIRECTION_CLOCKWISE
   - _GRADATIONSTARTPOINT_DOWN
@@ -22,19 +20,35 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MaskTex:
         m_Texture: {fileID: 2800000, guid: 9575db2087caa6344b612a1924fccaa7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _DIRECTION: 0
     - _GRADATIONSTARTPOINT: 3
-    - _Progress: -0.0018640757
+    - _Progress: -0.0030084848
+    - _RadiationAmount: 16
     - _ScrollSpeed: -1.05
     - _WIPETYPE: 1
     - _WaveAmount: 0.82

@@ -9,8 +9,6 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: LoopShapeTransition_Circle
   m_Shader: {fileID: -6465566751694194690, guid: e1c622ae2dcbdd544a1459766b910ee6, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: e1c622ae2dcbdd544a1459766b910ee6, type: 3}
-  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _SHAPE_CIRCLE
   m_InvalidKeywords:
@@ -23,14 +21,29 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _Angle: -24
-    - _Progress: -0.0019769669
+    - _Progress: 1
     - _RippleAmount: 5
     - _SHAPE: 0
     m_Colors:

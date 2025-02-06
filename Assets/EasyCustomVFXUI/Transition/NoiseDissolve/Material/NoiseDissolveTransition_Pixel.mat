@@ -22,8 +22,6 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: NoiseDissolveTransition_Pixel
   m_Shader: {fileID: -6465566751694194690, guid: cca3d4d38b061884e9c007cc6f652d29, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: cca3d4d38b061884e9c007cc6f652d29, type: 3}
-  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _NOISEPATTERN_PIXELNOISE
   m_InvalidKeywords:
@@ -34,22 +32,39 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TileTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _EdegeWidth: 0.071
+    - _EdgeWidth: 0.1
     - _NOISEPATTERN: 0
     - _NoiseEdgeWidth: 0.1
-    - _Progress: -0.0020626783
+    - _Progress: -0.0013310909
     - _Tiling: 6.1
     m_Colors:
     - _Color: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 0}
     - _EdgeColor: {r: 0, g: 0.28555328, b: 0.5849056, a: 0}
+    - _NoiseEdgeColor: {r: 1, g: 0.28773576, b: 0.28773576, a: 0}
   m_BuildTextureStacks: []

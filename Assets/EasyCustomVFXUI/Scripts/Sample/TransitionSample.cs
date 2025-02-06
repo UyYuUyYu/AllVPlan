@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class ImageEntry
@@ -12,7 +14,8 @@ public class ImageEntry
 public class TransitionSample : MonoBehaviour
 {
     public List<ImageEntry> imageEntries;
-    public float duration = 1.0f;
+    public float duration = 1.5f;
+    [SerializeField] private GameObject Cutin;
 
     void Start()
     {
@@ -23,11 +26,13 @@ public class TransitionSample : MonoBehaviour
                 entry.transitionCanvas.SetActive(false);
             }
         }
+        Cutin.SetActive(true);
     }
 
     // Set progress of transition image
     public void SetProgress(int no)
     {
+        
         foreach (var entry in imageEntries)
         {
             if (entry.Number == no)
@@ -63,5 +68,21 @@ public class TransitionSample : MonoBehaviour
         controller.progress = 0.0f;
 
         entry.transitionCanvas.SetActive(false);
+    }
+
+    // オブジェクトをオンにしてから指定秒後にシーンをロードするメソッド
+    public void StartCutin(string sceneName)
+    {
+        // GameObjectをオンにする
+        Cutin.SetActive(false);
+        // 指定秒後にシーンをロードするコルーチンを開始    
+        StartCoroutine(DisableAfterDelay(duration, sceneName));  
+    }
+
+    // 指定した秒数待ってからシーンをロードするコルーチン
+    private IEnumerator DisableAfterDelay(float delay, string sceneName)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -13,7 +13,7 @@ namespace UnityToolbarExtender.Examples
 		{
 			commandButtonStyle = new GUIStyle("Command")
 			{
-				fontSize = 16,
+				fontSize = 8,
 				alignment = TextAnchor.MiddleCenter,
 				imagePosition = ImagePosition.ImageAbove,
 				fontStyle = FontStyle.Bold
@@ -33,14 +33,18 @@ namespace UnityToolbarExtender.Examples
 		{
 			GUILayout.FlexibleSpace();
 
-			if(GUILayout.Button(new GUIContent("1", "Start Scene 1"), ToolbarStyles.commandButtonStyle))
+			if(GUILayout.Button(new GUIContent("Game", "ゲーム画面"), ToolbarStyles.commandButtonStyle))
 			{
 				SceneHelper.StartScene("TestInobeeFromTestYuuyu");
 			}
 
-			if(GUILayout.Button(new GUIContent("2", "Start Scene 2"), ToolbarStyles.commandButtonStyle))
+			if(GUILayout.Button(new GUIContent("Talk", "会話シーン"), ToolbarStyles.commandButtonStyle))
 			{
-				SceneHelper.StartScene("SweetDemoScene");
+				SceneHelper.StartScene("talk1");
+			}
+			if(GUILayout.Button(new GUIContent("Select", "ステージ選択"), ToolbarStyles.commandButtonStyle))
+			{
+				SceneHelper.StartScene("selectstage");
 			}
 		}
 	}

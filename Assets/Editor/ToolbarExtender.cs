@@ -44,12 +44,12 @@ namespace UnityToolbarExtender
 		}
 
 #if UNITY_2019_3_OR_NEWER
-		public const float space = 8;
+		public const float space = 80;
 #else
 		public const float space = 10;
 #endif
-		public const float largeSpace = 20;
-		public const float buttonWidth = 32;
+		public const float largeSpace = 70;
+		public const float buttonWidth = 1000;
 		public const float dropdownWidth = 80;
 #if UNITY_2019_1_OR_NEWER
 		public const float playPauseStopWidth = 140;
@@ -110,9 +110,9 @@ namespace UnityToolbarExtender
 
 			// Add top and bottom margins
 #if UNITY_2019_3_OR_NEWER
-			leftRect.y = 4;
+			leftRect.y = 40;
 			leftRect.height = 22;
-			rightRect.y = 4;
+			rightRect.y = 40;
 			rightRect.height = 22;
 #else
 			leftRect.y = 5;
