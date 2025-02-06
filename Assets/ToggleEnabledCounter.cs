@@ -3,20 +3,17 @@ using UnityEngine;
 
 public class ToggleEnabledCounter : MonoBehaviour
 {
-    // 対象となるGameObjectをInspectorから設定
-    [SerializeField] private GameObject Cutin;
-
     // オブジェクトをオンにしてから5秒後にオフにするメソッド
-    public void StartCutin()
+    public void StartCutin(GameObject Cutin)
     {
         // GameObjectをオンにする
         Cutin.SetActive(true);
         // 5秒後にオフにするコルーチンを開始
-        StartCoroutine(DisableAfterDelay(5f));
+        StartCoroutine(DisableAfterDelay(5f, Cutin));
     }
 
     // 指定した秒数待ってからオブジェクトをオフにするコルーチン
-    private IEnumerator DisableAfterDelay(float delay)
+    private IEnumerator DisableAfterDelay(float delay, GameObject Cutin)
     {
         yield return new WaitForSeconds(delay);
         Cutin.SetActive(false);

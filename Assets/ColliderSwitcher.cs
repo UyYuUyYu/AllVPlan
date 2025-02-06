@@ -41,16 +41,18 @@ public class ColliderSwitcher : MonoBehaviour
     /// <summary>
     /// MeshColliderに衝突したときの処理
     /// </summary>
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("衝突したオブジェクト: " + collision.gameObject.name);
+   void OnCollisionEnter(Collision collision)
+{
+    Debug.Log("衝突したオブジェクト: " + collision.gameObject.name);
 
-        
-            meshCollider.enabled = false;
-            capsuleCollider.enabled = false;
-            StartCoroutine(FlashAndDestroy());
-        
+    if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Grand"))
+    {
+        meshCollider.enabled = false;
+        capsuleCollider.enabled = false;
+        StartCoroutine(FlashAndDestroy());
     }
+}
+
 
     /// <summary>
     /// プレイヤーがCapsuleCollider内に入ったときの処理
@@ -64,7 +66,7 @@ public class ColliderSwitcher : MonoBehaviour
             if (meshCollider.enabled)
             {
                 meshCollider.enabled = false;
-                Debug.Log("プレイヤー(" + other.gameObject.name + ")がCapsuleCollider内に入ったのでMeshColliderを無効化しました。");
+          
             }
         }
         else
@@ -83,7 +85,7 @@ public class ColliderSwitcher : MonoBehaviour
             if (!meshCollider.enabled)
             {
                 meshCollider.enabled = true;
-                Debug.Log("プレイヤー(" + other.gameObject.name + ")がCapsuleColliderから出たのでMeshColliderを再有効化しました。");
+              
             }
         }
 
@@ -103,25 +105,23 @@ public class ColliderSwitcher : MonoBehaviour
             Destroy(gameObject);
             yield break;
         }
-        Debug.Log("点滅させてからDestroyします。");
 
         for (int i = 0; i < flashCount; i++)
         {
-            Debug.Log("点滅中...（オフ）");
+           
             foreach (Renderer r in objRenderers)
             {
                 r.enabled = false;
             }
             yield return new WaitForSeconds(flashInterval);
 
-            Debug.Log("点滅中...（オン）");
+           
             foreach (Renderer r in objRenderers)
             {
                 r.enabled = true;
             }
             yield return new WaitForSeconds(flashInterval);
         }
-        Debug.Log("点滅終了");
 
         // Destroy前にRendererをオンに戻す
         foreach (Renderer r in objRenderers)

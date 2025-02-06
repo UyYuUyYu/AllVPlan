@@ -15,6 +15,9 @@ public class PlayerControlerforinobee : MonoBehaviour
     Rigidbody prayerRb;
 
     [SerializeField] ToggleEnabledCounter toggleEnabledCounter;
+    [SerializeField] EffectsController effectsController;
+
+     [SerializeField] GameObject cutin;
 
     // InputSystemで得た方向
     Vector3 direction;
@@ -138,6 +141,7 @@ public class PlayerControlerforinobee : MonoBehaviour
                 break;
             case "Bullet":
                 playerHP--;
+                effectsController.DamageVoid();
                 break;
             default:
                 break;
@@ -148,7 +152,7 @@ public class PlayerControlerforinobee : MonoBehaviour
     {
         if(other.gameObject.tag == "energy")
         {
-            toggleEnabledCounter.StartCutin();
+            toggleEnabledCounter.StartCutin(cutin);
             Destroy(other.gameObject);
         }
     }

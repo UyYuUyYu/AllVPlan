@@ -35,7 +35,7 @@ namespace UnityToolbarExtender.Examples
 
 			if(GUILayout.Button(new GUIContent("Game", "ゲーム画面"), ToolbarStyles.commandButtonStyle))
 			{
-				SceneHelper.StartScene("TestInobeeFromTestYuuyu");
+				SceneHelper.StartScene("Game");
 			}
 
 			if(GUILayout.Button(new GUIContent("Talk", "会話シーン"), ToolbarStyles.commandButtonStyle))
@@ -45,6 +45,10 @@ namespace UnityToolbarExtender.Examples
 			if(GUILayout.Button(new GUIContent("Select", "ステージ選択"), ToolbarStyles.commandButtonStyle))
 			{
 				SceneHelper.StartScene("selectstage");
+			}
+			if(GUILayout.Button(new GUIContent("Title", "タイトル"), ToolbarStyles.commandButtonStyle))
+			{
+				SceneHelper.StartScene("Title");
 			}
 		}
 	}

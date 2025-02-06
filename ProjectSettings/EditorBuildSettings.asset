@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/GolemKin/CandySeries/MegaPack/Demo/SweetDemoScene.unity
     guid: e1ad26e64c026b24d9d4663aa45a58eb
   - enabled: 1
-    path: Assets/inobee/TestInobeeFromTestYuuyu.unity
+    path: Assets/inobee/Game.unity
     guid: 5f70f44ee0e7b054e92cf54782a1eb47
   - enabled: 1
     path: Assets/talk1.unity
