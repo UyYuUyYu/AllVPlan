@@ -155,6 +155,12 @@ public class PlayerControlerforinobee : MonoBehaviour
             toggleEnabledCounter.StartCutin(cutin);
             Destroy(other.gameObject);
         }
+        if(other.gameObject.tag == "Bullet")
+        {
+            playerHP--;
+            effectsController.DamageVoid();
+        }
+
     }
 
     /// <summary>

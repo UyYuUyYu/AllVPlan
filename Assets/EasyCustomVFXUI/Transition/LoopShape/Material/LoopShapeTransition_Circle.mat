@@ -43,7 +43,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Angle: -24
-    - _Progress: 1
+    - _Progress: 0
     - _RippleAmount: 5
     - _SHAPE: 0
     m_Colors:
