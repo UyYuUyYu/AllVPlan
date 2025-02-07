@@ -33,22 +33,27 @@ namespace UnityToolbarExtender.Examples
 		{
 			GUILayout.FlexibleSpace();
 
-			if(GUILayout.Button(new GUIContent("Game", "ゲーム画面"), ToolbarStyles.commandButtonStyle))
-			{
-				SceneHelper.StartScene("Game");
-			}
 
-			if(GUILayout.Button(new GUIContent("Talk", "会話シーン"), ToolbarStyles.commandButtonStyle))
+			if (GUILayout.Button(new GUIContent("Talk", "会話シーン"), ToolbarStyles.commandButtonStyle))
 			{
 				SceneHelper.StartScene("talk1");
 			}
-			if(GUILayout.Button(new GUIContent("Select", "ステージ選択"), ToolbarStyles.commandButtonStyle))
+			if (GUILayout.Button(new GUIContent("Game", "ゲーム画面"), ToolbarStyles.commandButtonStyle))
+			{
+				SceneHelper.StartScene("PlayGame");
+			}
+			if (GUILayout.Button(new GUIContent("Select", "ステージ選択"), ToolbarStyles.commandButtonStyle))
 			{
 				SceneHelper.StartScene("selectstage");
 			}
-			if(GUILayout.Button(new GUIContent("Title", "タイトル"), ToolbarStyles.commandButtonStyle))
+			if (GUILayout.Button(new GUIContent("Title", "タイトル"), ToolbarStyles.commandButtonStyle))
 			{
 				SceneHelper.StartScene("Title");
+			}
+
+			if (GUILayout.Button(new GUIContent("Tutorial", "チュートリアル"), ToolbarStyles.commandButtonStyle))
+			{
+				SceneHelper.StartScene("Tutorial");
 			}
 		}
 	}
@@ -59,7 +64,7 @@ namespace UnityToolbarExtender.Examples
 
 		public static void StartScene(string sceneName)
 		{
-			if(EditorApplication.isPlaying)
+			if (EditorApplication.isPlaying)
 			{
 				EditorApplication.isPlaying = false;
 			}
@@ -71,15 +76,15 @@ namespace UnityToolbarExtender.Examples
 		static void OnUpdate()
 		{
 			if (sceneToOpen == null ||
-			    EditorApplication.isPlaying || EditorApplication.isPaused ||
-			    EditorApplication.isCompiling || EditorApplication.isPlayingOrWillChangePlaymode)
+				EditorApplication.isPlaying || EditorApplication.isPaused ||
+				EditorApplication.isCompiling || EditorApplication.isPlayingOrWillChangePlaymode)
 			{
 				return;
 			}
 
 			EditorApplication.update -= OnUpdate;
 
-			if(EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+			if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
 			{
 				// need to get scene via search because the path to the scene
 				// file contains the package version so it'll change over time
@@ -92,7 +97,7 @@ namespace UnityToolbarExtender.Examples
 				{
 					string scenePath = AssetDatabase.GUIDToAssetPath(guids[0]);
 					EditorSceneManager.OpenScene(scenePath);
-				//	EditorApplication.isPlaying = true;
+					//	EditorApplication.isPlaying = true;
 				}
 			}
 			sceneToOpen = null;

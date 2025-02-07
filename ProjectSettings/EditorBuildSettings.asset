@@ -15,16 +15,19 @@ EditorBuildSettings:
     path: Assets/yuuyu/Scene/SelectStage.unity
     guid: d04758c60333842ecbf2e0d26578b5c2
   - enabled: 0
-    path: Assets/GolemKin/CandySeries/MegaPack/Demo/SweetDemoScene.unity
+    path: Assets/3Dmodel/GolemKin/CandySeries/MegaPack/Demo/SweetDemoScene.unity
     guid: e1ad26e64c026b24d9d4663aa45a58eb
   - enabled: 1
-    path: Assets/inobee/Game.unity
-    guid: 5f70f44ee0e7b054e92cf54782a1eb47
-  - enabled: 1
-    path: Assets/talk1.unity
+    path: Assets/Scenes/Fix/talk1.unity
     guid: 0cd36b22691c61e44b15a579e0827d34
   - enabled: 1
-    path: Assets/Scenes/selectstage.unity
+    path: Assets/Scenes/Fix/selectstage.unity
     guid: 58528ac4d9c36415ea90597e1199f2e4
+  - enabled: 1
+    path: Assets/Scenes/Fix/Tutorial.unity
+    guid: e953787e6a4ff4045921da1a16f6f274
+  - enabled: 1
+    path: Assets/Scenes/Fix/PlayGame.unity
+    guid: 5f70f44ee0e7b054e92cf54782a1eb47
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e2b5932c74b64010804179b7adaf23a, type: 2}
