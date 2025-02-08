@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Grand
   - Bullet
+  - Screen
+  - energy
   layers:
   - Default
   - TransparentFX
