@@ -5,23 +5,38 @@ using UnityEngine.InputSystem;
 
 public class PlayerControler : MonoBehaviour
 {
-    PlayerInput playerInput;
-    //InputAction jumpAction;
-    [SerializeField]float moveSpeed=2;
-    [SerializeField]float jumpPower=10f;
+
+    //PayerDefautParameter
+    [SerializeField] float moveSpeed=2;
+    [SerializeField] float jumpPower=10f;
     [SerializeField] int jumpCount=1;
-    int nowJumpCount;
-    [SerializeField]int playerHP=3;
+    [SerializeField] int playerHP=3;
+    [SerializeField] int now_KoeruPower = 0;
+    [SerializeField] int max_KoeruPower = 3;
+    [SerializeField] float getKoeruPowerTime = 15.0f;
+
+    //PayerComponent
+    PlayerInput playerInput;
     Rigidbody prayerRb;
+    //InputAction jumpAction;
+
+    GameUIManager gameUIManager;
+
+
     Vector3 direction;
+    int nowJumpCount;
+    float countTime;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
         prayerRb=this.GetComponent<Rigidbody>();
         nowJumpCount=jumpCount;
         direction=new Vector3(0,0,0);
+        countTime = 0;
     }
     void Awake()
     {
@@ -63,7 +78,15 @@ public class PlayerControler : MonoBehaviour
         {
             transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
         }
-        if(Input.GetKeyDown(KeyCode.Space)&&(nowJumpCount>0))
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += new Vector3(0, 0, moveSpeed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position -= new Vector3(0, 0, moveSpeed * Time.deltaTime);
+        }
+        if (Input.GetKeyDown(KeyCode.Space)&&(nowJumpCount>0))
         {
             prayerRb.velocity = Vector3.up * jumpPower;
             nowJumpCount--;
@@ -72,12 +95,23 @@ public class PlayerControler : MonoBehaviour
         }
         #endregion
 
+        #region コエルパワー
+        countTime += Time.deltaTime;
+        if(countTime>getKoeruPowerTime)
+        {
+            countTime = 0;
+            if (now_KoeruPower < max_KoeruPower)
+                AddKoeruPower();
+        }
+        #endregion
+
     }
-    
+
     void OnMove(InputAction.CallbackContext context)
     {
         var value=context.ReadValue<Vector2>();
-        direction=new Vector3(value.x,0,0).normalized;
+        //direction=new Vector3(value.x,0,0).normalized;
+        direction = new Vector3(value.x, 0, value.y).normalized;
     }
     void OnMoveStop(InputAction.CallbackContext context)
     {
@@ -88,6 +122,19 @@ public class PlayerControler : MonoBehaviour
         prayerRb.velocity = Vector3.up * jumpPower;
         nowJumpCount--;
     }    
+
+    [ContextMenu("AddKoeruPower")]
+    public void AddKoeruPower()
+    {
+        now_KoeruPower++;
+        gameUIManager.ChangeKoeruPowerPanel(now_KoeruPower, max_KoeruPower);
+    }
+    [ContextMenu("ResetKoeruPower")]
+    public void ResetKoeruPower()
+    {
+        now_KoeruPower = 0;
+        gameUIManager.ChangeKoeruPowerPanel(now_KoeruPower, max_KoeruPower);
+    }
    
     void OnCollisionEnter(Collision collision)
     {
