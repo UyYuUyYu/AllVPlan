@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1152040912725115497}
   m_Layer: 0
   m_Name: donut
-  m_TagString: Bullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8950294870947626056}
-  m_LocalRotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: -16.5, y: 134.42055, z: 12.507}
   m_LocalScale: {x: 731.5595, y: 731.5595, z: 731.5595}
   m_ConstrainProportionsScale: 0
@@ -37,7 +37,7 @@ Transform:
   - {fileID: 2021690829208470643}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!33 &4670759455718779223
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -129,9 +129,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.014062878
-  m_Height: 0.06306345
+  m_Height: 0.06187
   m_Direction: 1
-  m_Center: {x: 0.00033733467, y: 0.0010726849, z: 0.0013315704}
+  m_Center: {x: 0.00033733467, y: 0.0016694083, z: 0.0013315704}
 --- !u!114 &1152040912725115497
 MonoBehaviour:
   m_ObjectHideFlags: 0

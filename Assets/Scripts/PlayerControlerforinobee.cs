@@ -60,7 +60,7 @@ public class PlayerControlerforinobee : MonoBehaviour
         // 既存のInputSystemからの入力（direction）と
         // キーボードの入力（W,A,S,D）を合算する
         rawInput = direction;  // InputSystemでの入力（2Dベクトル→x, yは使い回すので注意）
-        
+
         // キーボード入力（※InputSystemと重複する場合は調整してください）
         if (Input.GetKey(KeyCode.D))
         {
@@ -148,6 +148,7 @@ public class PlayerControlerforinobee : MonoBehaviour
         }
     }
 
+
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "energy")
@@ -161,6 +162,11 @@ public class PlayerControlerforinobee : MonoBehaviour
             effectsController.DamageVoid();
         }
 
+    }
+    public void Damage(int damege)
+    {
+        playerHP -= damege;
+        effectsController.DamageVoid();
     }
 
     /// <summary>

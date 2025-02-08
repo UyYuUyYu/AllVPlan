@@ -14,7 +14,7 @@ public class ColliderSwitcher : MonoBehaviour
 
     // 自身および子要素も含めたRendererの配列
     private Renderer[] objRenderers;
-    
+
     // 点滅の設定
     [Header("点滅設定")]
     [Tooltip("点滅回数（オン＋オフで1サイクル）")]
@@ -50,6 +50,7 @@ public class ColliderSwitcher : MonoBehaviour
         meshCollider.enabled = false;
         capsuleCollider.enabled = false;
         StartCoroutine(FlashAndDestroy());
+        collision.gameObject.GetComponent<PlayerControlerforinobee>().Damage(1);
     }
 }
 
@@ -66,7 +67,7 @@ public class ColliderSwitcher : MonoBehaviour
             if (meshCollider.enabled)
             {
                 meshCollider.enabled = false;
-          
+
             }
         }
         else
@@ -85,7 +86,7 @@ public class ColliderSwitcher : MonoBehaviour
             if (!meshCollider.enabled)
             {
                 meshCollider.enabled = true;
-              
+
             }
         }
 
@@ -108,14 +109,14 @@ public class ColliderSwitcher : MonoBehaviour
 
         for (int i = 0; i < flashCount; i++)
         {
-           
+
             foreach (Renderer r in objRenderers)
             {
                 r.enabled = false;
             }
             yield return new WaitForSeconds(flashInterval);
 
-           
+
             foreach (Renderer r in objRenderers)
             {
                 r.enabled = true;
