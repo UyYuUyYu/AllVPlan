@@ -795,9 +795,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 66992381}
-  selectedCommands:
-  - {fileID: 66992385}
+  - {fileID: 66992334}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -12413,7 +12412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1107.9, y: -12}
+  m_AnchoredPosition: {x: -1107.9, y: -12.000061}
   m_SizeDelta: {x: 1500, y: 335}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &2054606888
