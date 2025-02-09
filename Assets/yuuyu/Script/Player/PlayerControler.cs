@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerControler : MonoBehaviour
 {
-
+    
     //PayerDefautParameter
     [SerializeField] float moveSpeed=2;
     [SerializeField] float jumpPower=10f;
@@ -135,6 +135,8 @@ public class PlayerControler : MonoBehaviour
         now_KoeruPower = 0;
         gameUIManager.ChangeKoeruPowerPanel(now_KoeruPower, max_KoeruPower);
     }
+
+    
    
     void OnCollisionEnter(Collision collision)
     {

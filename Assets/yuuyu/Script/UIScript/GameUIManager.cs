@@ -16,6 +16,7 @@ public class GameUIManager : MonoBehaviour
        // print(()=>isTutorialUIPanel=!isTutorialUIPanel);
     }
 
+
     // Update is called once per frame
     void Update()
     {
