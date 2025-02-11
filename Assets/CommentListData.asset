@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb10610f40aaedd488e2a78d5fca26f2, type: 3}
+  m_Name: CommentListData
+  m_EditorClassIdentifier: 
+  normalList:
+  - name: "\u30B3\u30A8\u30EB\u5358\u306E\u3053\u3046\u3061\u3083\u3093"
+    message: "\u5FDC\u63F4\u3057\u3066\u307E\u3059\uFF01\u5FDC\u63F4\u3057\u3066\u307E"
+    avatar: {fileID: 21300000, guid: 2eb1cc9d1b6144350b04a7b83234c321, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF\U0001F49D \U0001F504\U0001F4A0\u2764\u21BB\u2666\uFE0F"
+    message: "\u5FDC\u63F4\u3057\u3066\u307E\u3059\uFF01\uFF01\uFF01"
+    avatar: {fileID: 21300000, guid: a8553ce0f9f0e4289be4f54a660ce65c, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\uFF01\uFF01\uFF01\uFF01\uFF01"
+    avatar: {fileID: 21300000, guid: 27c31078940ac4e9fab8b7a4283404b0, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\uFF01\uFF01\uFF01\uFF01\uFF01"
+    avatar: {fileID: 21300000, guid: ac1659a7ad7c44f668df1a3ce61b5c3e, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\uFF01\uFF01\uFF01\uFF01\uFF01"
+    avatar: {fileID: 21300000, guid: ac1659a7ad7c44f668df1a3ce61b5c3e, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 0}
+  damageList:
+  - name: "\u5143\u30C1\u30FC\u725B\u306E\u967D\u30AD\u30E3\u304F\u3093"
+    message: "\u3046\u308F\u3044\u305F\u305D\u3046\u3060\u306A\u3041....."
+    avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "\u8C5A\u4E3C"
+    message: "\u3082\u3063\u3068\u5DE6\u3060\u3088"
+    avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "\u30C1\u30FC\u725B\uFF12"
+    message: "\u3061\u3083\u3093\u3068\u3088\u3051\u308D"
+    avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u8C5A"
+    message: "\u3061\u3083\u3093\u3068\u3088\u3051\u308D"
+    avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "\u30B3\u30A8\u30EB"
+    message: "\u3044\u305F\u3044\uFF01\u3057\u3063\u304B\u308A\u907F\u3051\u3066\uFF5E....\uFF01"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0.16788149, b: 1, a: 1}
+  attackList:
+  - name: "V\u30AA\u30BF"
+    message: "\u304A\u304A\u304A\u304A\u304A\u304A"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\u304A\u304A\u304A\u304A\u304A\u304A"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\u304A\u304A\u304A\u304A\u304A\u304A"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\u304A\u304A\u304A\u304A\u304A\u304A"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\u304A\u304A\u304A\u304A\u304A\u304A"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\u304A\u304A\u304A\u304A\u304A\u304A"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\u304A\u304A\u304A\u304A\u304A\u304A"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\u304A\u304A\u304A\u304A\u304A\u304A"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: "V\u30AA\u30BF"
+    message: "\u304A\u304A\u304A\u304A\u304A\u304A"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}

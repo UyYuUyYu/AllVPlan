@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class BallController : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class BallController : MonoBehaviour
 
     // ApplyDecal() の多重呼び出しを防ぐためのフラグ
     private bool decalApplied = false;
+
+    // デカールが適用されたオブジェクトのリスト
+    private static List<GameObject> decalAppliedObjects = new List<GameObject>();
 
     void OnTriggerEnter(Collider other)
     {
@@ -24,17 +28,15 @@ public class BallController : MonoBehaviour
             }
 
             // DecalApplier が設定されており、まだ適用していなければ ApplyDecal() を呼び出す
-            if (decalApplier != null && !decalApplied)
+            if (decalApplier != null && !decalApplied && !decalAppliedObjects.Contains(other.gameObject))
             {
                 decalApplied = true;
                 decalApplier.ApplyDecal();
+                decalAppliedObjects.Add(other.gameObject); // デカールが適用されたオブジェクトをリストに追加
             }
 
             // 玉を破棄する
             Destroy(gameObject);
         }
-
-
     }
-    
 }

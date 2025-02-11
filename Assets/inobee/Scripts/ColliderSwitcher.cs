@@ -50,7 +50,9 @@ public class ColliderSwitcher : MonoBehaviour
         meshCollider.enabled = false;
         capsuleCollider.enabled = false;
         StartCoroutine(FlashAndDestroy());
+        if (collision.gameObject.CompareTag("Player")){
         collision.gameObject.GetComponent<PlayerControlerforinobee>().Damage(1);
+        }
     }
 }
 

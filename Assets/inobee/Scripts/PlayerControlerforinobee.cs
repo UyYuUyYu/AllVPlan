@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Fungus;
 
 public class PlayerControlerforinobee : MonoBehaviour
 {
@@ -15,11 +16,12 @@ public class PlayerControlerforinobee : MonoBehaviour
     Rigidbody prayerRb;
 
     [SerializeField] ToggleEnabledCounter toggleEnabledCounter;
-    [SerializeField] EffectsController effectsController;
+    [SerializeField] CommentManager commentManager;
 
-     [SerializeField] GameObject cutin;
+    [SerializeField] GameObject cutin;
+    public Flowchart flowchart;
 
-    // InputSystemで得た方向
+    // InputSystemで得た方向（主にコントローラー入力）
     Vector3 direction;
 
     // キーボード入力も加味した生の入力を合算するための変数
@@ -57,11 +59,9 @@ public class PlayerControlerforinobee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 既存のInputSystemからの入力（direction）と
-        // キーボードの入力（W,A,S,D）を合算する
-        rawInput = direction;  // InputSystemでの入力（2Dベクトル→x, yは使い回すので注意）
+        // InputSystemからの入力（direction）とキーボード入力（W,A,S,D）を合算する
+        rawInput = direction;  // ここはコントローラー入力で取得した方向
 
-        // キーボード入力（※InputSystemと重複する場合は調整してください）
         if (Input.GetKey(KeyCode.D))
         {
             rawInput += Vector3.right;
@@ -79,16 +79,14 @@ public class PlayerControlerforinobee : MonoBehaviour
             rawInput += Vector3.back;
         }
 
-        // 入力が複数ある場合に正規化して方向だけを取り出す
+        // 複数入力があれば正規化して方向のみを保持
         rawInput = rawInput.normalized;
 
         // ブロックされている方向の成分を除去する
         Vector3 effectiveInput = rawInput;
         foreach (Vector3 blockDir in blockedDirections)
         {
-            // ブロックする方向は正規化しておく
             Vector3 normalized = blockDir.normalized;
-            // もし入力がブロック方向に向かっているなら、その成分を除去する
             float dot = Vector3.Dot(effectiveInput, normalized);
             if (dot > 0)
             {
@@ -97,11 +95,38 @@ public class PlayerControlerforinobee : MonoBehaviour
             }
         }
 
-        // 有効な入力方向で移動する
-        transform.position += effectiveInput * moveSpeed * Time.deltaTime;
+        // 移動速度の調整（入力元により倍率を変える）
+        float currentMoveSpeed = moveSpeed;
+        string currentScheme = playerInput.currentControlScheme;
 
-        // キー入力によるジャンプ処理やその他の処理はそのまま
-        if (Input.GetKeyDown(KeyCode.Space) && (nowJumpCount > 0))
+        if (currentScheme == "Gamepad")
+        {
+            // コントローラーの場合：斜め移動なら速度2倍
+            if (Mathf.Abs(effectiveInput.x) > 0 && Mathf.Abs(effectiveInput.z) > 0)
+            {
+            Debug.Log("Gamepad");
+                currentMoveSpeed *= 2.0f;
+            }
+            // ※ コントローラーでの上下のみ・左右のみはそのまま
+        }
+        else
+        {
+            // キーボード（またはその他）の場合：斜め移動なら1.5倍、上下のみなら3倍
+            if (Mathf.Abs(effectiveInput.x) > 0 && Mathf.Abs(effectiveInput.z) > 0)
+            {
+                currentMoveSpeed *= 1.5f;
+            }
+            else if (Mathf.Abs(effectiveInput.z) > 0 && Mathf.Approximately(effectiveInput.x, 0f))
+            {
+                currentMoveSpeed *= 3.0f;
+            }
+            // 左右のみの場合はそのまま
+        }
+
+        transform.position += effectiveInput * currentMoveSpeed * Time.deltaTime;
+
+        // ジャンプ処理（スペースキーの場合のみ）
+        if (Input.GetKeyDown(KeyCode.Space) && nowJumpCount > 0)
         {
             prayerRb.velocity = Vector3.up * jumpPower;
             nowJumpCount--;
@@ -110,9 +135,8 @@ public class PlayerControlerforinobee : MonoBehaviour
 
     void OnMove(InputAction.CallbackContext context)
     {
-        // InputSystemのMoveアクションから取得（Vector2→Vector3に変換）
         var value = context.ReadValue<Vector2>();
-        // ここでは、x軸はx、y軸はzとして扱います
+        // x軸をx、y軸をzとして扱う（コントローラー入力）
         direction = new Vector3(value.x, 0, value.y).normalized;
     }
 
@@ -123,7 +147,6 @@ public class PlayerControlerforinobee : MonoBehaviour
 
     void OnJump(InputAction.CallbackContext context)
     {
-        // ジャンプ処理（衝突時と重複しますが、InputSystemでのジャンプも対応）
         if (nowJumpCount > 0)
         {
             prayerRb.velocity = Vector3.up * jumpPower;
@@ -131,7 +154,7 @@ public class PlayerControlerforinobee : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(UnityEngine.Collision collision)
     {
         string tagname = collision.gameObject.tag;
         switch (tagname)
@@ -140,38 +163,39 @@ public class PlayerControlerforinobee : MonoBehaviour
                 nowJumpCount = jumpCount;
                 break;
             case "Bullet":
-                playerHP--;
-                effectsController.DamageVoid();
+                Debug.Log("collider");
+                commentManager.Damage();
                 break;
             default:
                 break;
         }
     }
 
-
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "energy")
+        if (other.gameObject.tag == "energy")
         {
             toggleEnabledCounter.StartCutin(cutin);
+            // Fungusの "Energy" ブロックを実行
+            flowchart.ExecuteBlock("Energy");
             Destroy(other.gameObject);
         }
-        if(other.gameObject.tag == "Bullet")
+        if (other.gameObject.tag == "Bullet")
         {
-            playerHP--;
-            effectsController.DamageVoid();
+            Debug.Log("hit trigger");
+            commentManager.Damage();
         }
-
     }
-    public void Damage(int damege)
+
+    public void Damage(int damage)
     {
-        playerHP -= damege;
-        effectsController.DamageVoid();
+        Debug.Log("Player damaged: " + damage);
+        playerHP -= damage;
+        commentManager.Damage();
     }
 
     /// <summary>
     /// 既存の動きを完全に停止させる（moveSpeedを0にする）
-    /// ※ブロック方向機能とは別に全停止が必要な場合用
     /// </summary>
     public void DisableMovement()
     {
@@ -180,7 +204,6 @@ public class PlayerControlerforinobee : MonoBehaviour
 
     /// <summary>
     /// 移動を再開する（元のスピードに戻す）
-    /// ※ブロック方向機能とは別に全解除が必要な場合用
     /// </summary>
     public void EnableMovement()
     {
@@ -189,12 +212,10 @@ public class PlayerControlerforinobee : MonoBehaviour
 
     /// <summary>
     /// 指定方向への移動をブロックする
-    /// 例：壁側のスクリプトから呼び出される
     /// </summary>
-    /// <param name="direction">ブロックする方向（Vector3.right, Vector3.forwardなど）</param>
+    /// <param name="blockDirection">ブロックする方向（例：Vector3.right, Vector3.forward）</param>
     public void BlockMovement(Vector3 blockDirection)
     {
-        // 同じ方向が登録済みでなければ追加
         if (!blockedDirections.Contains(blockDirection))
         {
             blockedDirections.Add(blockDirection);
@@ -204,7 +225,7 @@ public class PlayerControlerforinobee : MonoBehaviour
     /// <summary>
     /// 指定方向へのブロックを解除する
     /// </summary>
-    /// <param name="direction">解除するブロック方向</param>
+    /// <param name="blockDirection">解除するブロック方向</param>
     public void UnblockMovement(Vector3 blockDirection)
     {
         if (blockedDirections.Contains(blockDirection))

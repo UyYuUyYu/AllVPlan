@@ -55,6 +55,10 @@ namespace UnityToolbarExtender.Examples
 			{
 				SceneHelper.StartScene("Tutorial");
 			}
+			if (GUILayout.Button(new GUIContent("GDtalk", "試遊版シーン"), ToolbarStyles.commandButtonStyle))
+			{
+				SceneHelper.StartScene("Talk_test");
+			}
 		}
 	}
 

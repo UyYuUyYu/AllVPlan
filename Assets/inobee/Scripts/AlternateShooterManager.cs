@@ -23,23 +23,33 @@ public class AlternateShooterManager : MonoBehaviour
     public float moveUpOffset = 1.0f;
     [Tooltip("上昇／元に戻る移動時間")]
     public float moveDuration = 0.5f;
-    [Tooltip("玉の初速（DOTween でのジャンプ力算出に使用）")]
+    [Tooltip("玉の初速（投げる際の動きの速さに影響）")]
     public float throwSpeed = 10f;
-    [Tooltip("玉の飛行時間（カメラまでの移動時間）")]
+    [Tooltip("玉の飛行時間（ターゲットまでの移動時間）")]
     public float ballFlightDuration = 1.0f;
     [Tooltip("次の発射までの待機時間")]
     public float delayAfterHit = 0.2f;
+
+    [Header("UI Settings")]
+    [Tooltip("玉が画面中央に到達した際にオンにするUIのImageオブジェクト（事前に非表示にしておく）")]
+    public GameObject centerImage;
 
     // 各 shooter の初期位置を記録
     private Vector3 shooter1OriginalPos;
     private Vector3 shooter2OriginalPos;
 
-    void Start()
+    public void StartHoipAttack()
     {
         if (shooter1 != null)
             shooter1OriginalPos = shooter1.position;
         if (shooter2 != null)
             shooter2OriginalPos = shooter2.position;
+
+        // centerImage を初期状態で非表示にしておく
+        if (centerImage != null)
+        {
+            centerImage.SetActive(false);
+        }
 
         StartCoroutine(ShootLoop());
     }
@@ -56,8 +66,8 @@ public class AlternateShooterManager : MonoBehaviour
             Vector3 currentOriginalPos = (shooterIndex == 0) ? shooter1OriginalPos : shooter2OriginalPos;
 
             // shooter を上方向に移動
-            Vector3 targetPos = currentOriginalPos + Vector3.up * moveUpOffset;
-            yield return StartCoroutine(MoveToPosition(currentShooter, targetPos, moveDuration));
+            Vector3 targetPosForShooter = currentOriginalPos + Vector3.up * moveUpOffset;
+            yield return StartCoroutine(MoveToPosition(currentShooter, targetPosForShooter, moveDuration));
 
             // 玉を生成（DOTween による移動のため Rigidbody の物理挙動は無効化）
             GameObject ball = Instantiate(ballPrefab, currentPoint.position, Quaternion.identity);
@@ -67,24 +77,29 @@ public class AlternateShooterManager : MonoBehaviour
                 rb.isKinematic = true;
             }
 
-            // カメラの位置をターゲットとする（必要に応じて位置調整してください）
-            Vector3 cameraTarget = Camera.main.transform.position;
+            // ★ターゲット位置は常にカメラの位置にする（あるいは必要ならカメラ前方の少し奥へ）
+            // ここではカメラの位置そのものをターゲットにしています
+            Vector3 targetPos = Camera.main.transform.position;
+            // ※必要に応じて、targetPos = Camera.main.transform.position + Camera.main.transform.forward * 0.5f; などと調整可
 
-            // DOTween の DOJump を利用して、玉が弧を描くように移動
-            float jumpPower = throwSpeed * 0.5f;
-            Tween ballTween = ball.transform.DOJump(cameraTarget, jumpPower, 1, ballFlightDuration)
-                .SetEase(Ease.OutQuad)
-                .OnComplete(() =>
-                {
-                    OnBallReachedTarget();
-                    if (ball != null) Destroy(ball);
-                });
+            // 玉の初期スケールを小さく設定しておく（遠くから迫ってくる印象を出すため）
+            ball.transform.localScale = Vector3.one * 0.5f;
+
+            // DOTween Sequence で移動とスケールアップを同時に実行
+            Sequence ballSequence = DOTween.Sequence();
+            ballSequence.Join(ball.transform.DOMove(targetPos, ballFlightDuration).SetEase(Ease.Linear));
+            ballSequence.Join(ball.transform.DOScale(54f, ballFlightDuration).SetEase(Ease.Linear));
+            ballSequence.OnComplete(() =>
+            {
+                OnBallReachedTarget();
+                if (ball != null) Destroy(ball);
+            });
 
             // BallController に tween と DecalApplier の参照を渡す
             BallController ballController = ball.GetComponent<BallController>();
             if (ballController != null)
             {
-                ballController.tween = ballTween;
+                ballController.tween = ballSequence;
                 ballController.decalApplier = decalApplier;
             }
 
@@ -114,10 +129,23 @@ public class AlternateShooterManager : MonoBehaviour
         obj.position = targetPos;
     }
 
-    // 玉が飛行完了したときの処理（Collision で先に破棄される場合もあり）
+    // 玉がカメラに衝突したときの処理
     void OnBallReachedTarget()
     {
-        Debug.Log("玉がカメラ付近に到達しました");
-        // 必要なら追加処理を記述
+        Debug.Log("玉がカメラに衝突しました");
+
+        // UIのImageをオンにする処理
+        if (centerImage != null)
+        {
+            centerImage.SetActive(true);
+        }
+        
+        // 衝突のインパクト演出としてカメラシェイクを実行
+        // ※Camera.mainがnullの場合に備えてチェックする
+        if (Camera.main != null)
+        {
+            // 0.2秒間、0.5単位の揺れを与える（必要に応じて調整）
+           // Camera.main.transform.DOShakePosition(0.2f, 0.5f);
+        }
     }
 }

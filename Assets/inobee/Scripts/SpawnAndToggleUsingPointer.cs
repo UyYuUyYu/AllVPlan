@@ -3,28 +3,37 @@ using System.Collections;
 
 public class SpawnAndToggleUsingPointer : MonoBehaviour
 {
-    // インスペクターで指定するプレハブ
-    public GameObject prefab;
+    // 生成するプレハブの配列（インスペクター上で2つの要素を設定してください）
+    public GameObject[] prefabs;
+    // 生成する位置の配列（インスペクター上で2つの要素を設定してください）
+    public Transform[] spawnPositions;
 
     // active 状態を切り替える対象のオブジェクト
     public GameObject targetObject;
 
-    // プレハブを生成する固定座標
-    private Vector3 spawnPosition = new Vector3(-16.5f, 130f, 12.5f);
-
-    void MakeDonut()
+    public void MakeDonut()
     {
-        // 固定座標にプレハブを生成
-        if (prefab != null)
+        // 配列が正しく設定されているかチェック（2つ以上の要素が必要）
+        if (prefabs == null || spawnPositions == null || prefabs.Length < 2 || spawnPositions.Length < 2)
         {
-            Instantiate(prefab, spawnPosition, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogWarning("Prefab が設定されていません。");
+            Debug.LogWarning("Prefab と Spawn Position の配列に2つ以上の要素を設定してください。");
+            return;
         }
 
-        // 対象オブジェクトを active にして、5 秒後に false にする
+        // 配列のインデックス0と1でドーナツを生成
+        for (int i = 0; i < 2; i++)
+        {
+            if (prefabs[i] != null && spawnPositions[i] != null)
+            {
+                Instantiate(prefabs[i], spawnPositions[i].position, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogWarning("Prefab または Spawn Position が null です。インデックス: " + i);
+            }
+        }
+
+        // 対象オブジェクトを active にして、5 秒後に非表示にする
         if (targetObject != null)
         {
             targetObject.SetActive(true);
@@ -36,7 +45,7 @@ public class SpawnAndToggleUsingPointer : MonoBehaviour
         }
     }
 
-    // 指定秒数後に targetObject の active 状態を false にするコルーチン
+    // 指定秒数後に targetObject を非アクティブにするコルーチン
     IEnumerator DisableAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);

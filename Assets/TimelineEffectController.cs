@@ -9,6 +9,8 @@ public class TimelineEffectController : MonoBehaviour
     // エフェクトをまとめたGameObject（例：EffectContainer）をアサイン
     public GameObject effectContainer;
 
+    public CommentManager commentManager;
+
     // ボタンなどで呼び出す関数
     public void PlayEffectTimeline()
     {
@@ -25,6 +27,7 @@ public class TimelineEffectController : MonoBehaviour
 
         // エフェクトを表示
         effectContainer.SetActive(true);
+        commentManager.Attack();
 
         // 一旦タイムラインの再生を停止し、0秒にリセット
         playableDirector.Stop();

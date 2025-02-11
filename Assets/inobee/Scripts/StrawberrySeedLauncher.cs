@@ -53,17 +53,47 @@ public class StrawberrySeedLauncher : MonoBehaviour
 
     /// <summary>
     /// 外部から呼び出してシーケンス処理を開始する関数
+    /// isHighDifficulty が true なら各数値を調整して高難易度モードにする
     /// </summary>
-    public void StartSequence()
+    /// <param name="count">選択するいちごの個数（randomizeSelectionCount が false の場合に利用）</param>
+    /// <param name="isHighDifficulty">true にすると高難易度モードになる</param>
+    public void StartSequence(int count, bool isHighDifficulty)
     {
-        StartCoroutine(SequenceCoroutine());
+        if (isHighDifficulty)
+        {
+            // 高難易度モード時の調整例
+            seedShotCount = 2;         // 発射回数を増やす
+            seedTravelTime = 0.3f;       // タネ移動を速くする
+            seedShotInterval = 0.1f;     // タネ発射間隔を短くする
+            delayBetweenRounds = 0.25f;     // シーケンス間の待機時間を短くする
+            repetitionCount = 1;         // シーケンス回数を増やす
+            blinkingDuration = 0.25f;     // 点滅時間を短縮（見やすさは好みで調整）
+            blinkInterval = 0.1f;        // 点滅間隔も短縮
+            // 固定選択個数も変えたい場合は fixedSelectionCount も調整可能
+            randomizeSelectionCount = false;
+            fixedSelectionCount = strawberries.Length; // 全てのいちごを選択する例
+        }
+        else
+        {
+            // 通常モードの場合、必要なら初期値に戻す
+            seedShotCount = 3;
+            seedTravelTime = 1f;
+            seedShotInterval = 0.2f;
+            delayBetweenRounds = 2f;
+            repetitionCount = 3;
+            blinkingDuration = 2f;
+            blinkInterval = 0.2f;
+            // 通常はランダム選択する設定など
+            randomizeSelectionCount = true;
+        }
+        StartCoroutine(SequenceCoroutine(count));
     }
 
     /// <summary>
     /// シーケンス処理：指定された回数だけランダムな（または固定個数の）いちごを選び、  
     /// 回転＋上昇→点滅→タネ発射→元の状態（回転・位置復帰）を行います。
     /// </summary>
-    private IEnumerator SequenceCoroutine()
+    private IEnumerator SequenceCoroutine(int count)
     {
         for (int round = 0; round < repetitionCount; round++)
         {
@@ -76,7 +106,7 @@ public class StrawberrySeedLauncher : MonoBehaviour
             }
             else
             {
-                selectionCount = Mathf.Clamp(fixedSelectionCount, 1, strawberries.Length);
+                selectionCount = count;
             }
 
             // ①-2：0～(いちご数-1)のインデックスリストを作成しシャッフルして先頭 selectionCount 個を選ぶ
