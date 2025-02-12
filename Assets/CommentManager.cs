@@ -200,21 +200,44 @@ public class CommentManager : MonoBehaviour
         }
     }
 
-    IEnumerator DamageCommentFlow()
+   IEnumerator DamageCommentFlow()
+{
+    isDamageMode = true;
+
+    // damageList から候補リストを作成
+    List<CommentListSO.CommentData> damageCandidates = new List<CommentListSO.CommentData>(commentListSO.damageList);
+    
+    // 出力するコメントを格納するリスト
+    List<CommentListSO.CommentData> selectedComments = new List<CommentListSO.CommentData>();
+
+    // 「コエル」のコメントがあれば、最初に追加し候補から除外する
+    int koeruIndex = damageCandidates.FindIndex(x => x.name == "コエル");
+    if (koeruIndex >= 0)
     {
-        isDamageMode = true;
-
-        int damageCount = Mathf.Min(commentListSO.damageList.Count, 5);
-        for (int i = 0; i < damageCount; i++)
-        {
-            var data = commentListSO.damageList[i];
-            SpawnComment(data);
-            yield return new WaitForSeconds(0.3f);
-        }
-
-        yield return new WaitForSeconds(1f);
-        isDamageMode = false;
+        selectedComments.Add(damageCandidates[koeruIndex]);
+        damageCandidates.RemoveAt(koeruIndex);
     }
+
+    // 残りのコメントからランダムに選んで、合計5件になるようにする
+    int targetCount = 5;
+    while (selectedComments.Count < targetCount && damageCandidates.Count > 0)
+    {
+        int randomIndex = Random.Range(0, damageCandidates.Count);
+        selectedComments.Add(damageCandidates[randomIndex]);
+        damageCandidates.RemoveAt(randomIndex);
+    }
+
+    // 選ばれたコメントを順次生成
+    foreach (var data in selectedComments)
+    {
+        SpawnComment(data);
+        yield return new WaitForSeconds(0.3f);
+    }
+
+    yield return new WaitForSeconds(1f);
+    isDamageMode = false;
+}
+
 
     /// <summary>
     /// Attack 時のコメント処理（attackList のコメントを順次生成）

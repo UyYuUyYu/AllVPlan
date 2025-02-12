@@ -34,30 +34,38 @@ namespace UnityToolbarExtender.Examples
 			GUILayout.FlexibleSpace();
 
 
-			if (GUILayout.Button(new GUIContent("Talk", "会話シーン"), ToolbarStyles.commandButtonStyle))
+			// if (GUILayout.Button(new GUIContent("Talk", "会話シーン"), ToolbarStyles.commandButtonStyle))
+			// {
+			// 	SceneHelper.StartScene("talk1");
+			// }
+			if (GUILayout.Button(new GUIContent("Title", "タイトル"), ToolbarStyles.commandButtonStyle))
 			{
-				SceneHelper.StartScene("talk1");
+				SceneHelper.StartScene("Title");
+			}
+			if (GUILayout.Button(new GUIContent("GDtalk", "試遊版シーン"), ToolbarStyles.commandButtonStyle))
+			{
+				SceneHelper.StartScene("Talk_test");
 			}
 			if (GUILayout.Button(new GUIContent("Game", "ゲーム画面"), ToolbarStyles.commandButtonStyle))
 			{
 				SceneHelper.StartScene("PlayGame");
 			}
-			if (GUILayout.Button(new GUIContent("Select", "ステージ選択"), ToolbarStyles.commandButtonStyle))
-			{
-				SceneHelper.StartScene("selectstage");
-			}
-			if (GUILayout.Button(new GUIContent("Title", "タイトル"), ToolbarStyles.commandButtonStyle))
-			{
-				SceneHelper.StartScene("Title");
-			}
+			// if (GUILayout.Button(new GUIContent("Select", "ステージ選択"), ToolbarStyles.commandButtonStyle))
+			// {
+			// 	SceneHelper.StartScene("selectstage");
+			// }
 
-			if (GUILayout.Button(new GUIContent("Tutorial", "チュートリアル"), ToolbarStyles.commandButtonStyle))
+			// if (GUILayout.Button(new GUIContent("Tutorial", "チュートリアル"), ToolbarStyles.commandButtonStyle))
+			// {
+			// 	SceneHelper.StartScene("Tutorial");
+			// }
+			if (GUILayout.Button(new GUIContent("End", "戦闘後会話シーン"), ToolbarStyles.commandButtonStyle))
 			{
-				SceneHelper.StartScene("Tutorial");
+				SceneHelper.StartScene("talk2");
 			}
-			if (GUILayout.Button(new GUIContent("GDtalk", "試遊版シーン"), ToolbarStyles.commandButtonStyle))
+			if (GUILayout.Button(new GUIContent("load", "loading"), ToolbarStyles.commandButtonStyle))
 			{
-				SceneHelper.StartScene("Talk_test");
+				SceneHelper.StartScene("loading");
 			}
 		}
 	}

@@ -18,35 +18,33 @@ public class StrawberrySeedLauncher : MonoBehaviour
 
     [Header("回転設定")]
     [Tooltip("いちごの回転にかかる時間")]
-    public float rotationDuration = 0.5f;
+    private float rotationDuration = 0.5f;
     [Tooltip("回転時にY軸方向へ上昇させるオフセット（単位はワールド座標）")]
-    public float verticalOffset = 1f;
+    private float verticalOffset = 1f;
 
     [Header("LineRenderer（点滅）設定")]
     [Tooltip("LineRendererの点滅（点滅状態の継続時間）")]
-    public float blinkingDuration = 2f;
+    private float blinkingDuration = 2f;
     [Tooltip("点滅の間隔")]
-    public float blinkInterval = 0.2f;
+    private float blinkInterval = 0.2f;
 
     [Header("タネ発射設定")]
     [Tooltip("いちごから発射するタネの回数")]
-    public int seedShotCount = 3;
+    private int seedShotCount = 3;
     [Tooltip("タネが目標位置に到達するまでの移動時間")]
-    public float seedTravelTime = 1f;
+    private float seedTravelTime = 1f;
     [Tooltip("各タネ発射の間隔")]
-    public float seedShotInterval = 0.2f;
+    private float seedShotInterval = 0.2f;
 
     [Header("シーケンス設定")]
     [Tooltip("シーケンス（全体の処理）の繰り返し回数")]
-    public int repetitionCount = 3;
+    private int repetitionCount = 1;
     [Tooltip("各シーケンス間の待機時間")]
-    public float delayBetweenRounds = 2f;
+    private float delayBetweenRounds = 2f;
 
     [Header("選択設定")]
-    [Tooltip("チェックを入れると、選ばれるいちごの個数がランダムになります。")]
-    public bool randomizeSelectionCount = true;
     [Tooltip("チェックがオフの場合、固定個数（1～いちご数内）で選択します。")]
-    public int fixedSelectionCount = 5;
+    private int fixedSelectionCount = 5;
 
     // 各処理中のいちごの数を管理するための内部変数
     private int activeProcessCount = 0;
@@ -62,29 +60,29 @@ public class StrawberrySeedLauncher : MonoBehaviour
         if (isHighDifficulty)
         {
             // 高難易度モード時の調整例
-            seedShotCount = 2;         // 発射回数を増やす
+            seedShotCount = 8;         // 発射回数を増やす
             seedTravelTime = 0.3f;       // タネ移動を速くする
-            seedShotInterval = 0.1f;     // タネ発射間隔を短くする
+            seedShotInterval = 0.005f;     // タネ発射間隔を短くする
             delayBetweenRounds = 0.25f;     // シーケンス間の待機時間を短くする
             repetitionCount = 1;         // シーケンス回数を増やす
             blinkingDuration = 0.25f;     // 点滅時間を短縮（見やすさは好みで調整）
             blinkInterval = 0.1f;        // 点滅間隔も短縮
             // 固定選択個数も変えたい場合は fixedSelectionCount も調整可能
-            randomizeSelectionCount = false;
+
             fixedSelectionCount = strawberries.Length; // 全てのいちごを選択する例
         }
         else
         {
             // 通常モードの場合、必要なら初期値に戻す
-            seedShotCount = 3;
-            seedTravelTime = 1f;
-            seedShotInterval = 0.2f;
-            delayBetweenRounds = 2f;
-            repetitionCount = 3;
-            blinkingDuration = 2f;
+            seedShotCount = 4;
+            seedTravelTime = 0.4f;
+            seedShotInterval = 0.001f;
+            delayBetweenRounds = 0.5f;
+            repetitionCount = 1;
+            blinkingDuration = 0.5f;
             blinkInterval = 0.2f;
             // 通常はランダム選択する設定など
-            randomizeSelectionCount = true;
+   
         }
         StartCoroutine(SequenceCoroutine(count));
     }
@@ -99,15 +97,8 @@ public class StrawberrySeedLauncher : MonoBehaviour
         {
             // ①【いちご選択】：選ばれるいちごの個数を決定
             int selectionCount = 0;
-            if (randomizeSelectionCount)
-            {
-                // 1～いちご数（配列長）の間でランダムに選ぶ
-                selectionCount = Random.Range(1, strawberries.Length + 1);
-            }
-            else
-            {
                 selectionCount = count;
-            }
+            
 
             // ①-2：0～(いちご数-1)のインデックスリストを作成しシャッフルして先頭 selectionCount 個を選ぶ
             List<int> indices = new List<int>();
@@ -214,8 +205,8 @@ public class StrawberrySeedLauncher : MonoBehaviour
                     yield return null;
                 }
                 seed.transform.position = endPos;
-                // 必要なら一定時間後に削除（ここでは2秒後に削除）
-                Destroy(seed, 2f);
+                // 必要なら一定時間後に削除
+                Destroy(seed, 0.1f);
 
                 yield return new WaitForSeconds(seedShotInterval);
             }

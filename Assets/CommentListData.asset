@@ -34,6 +34,10 @@ MonoBehaviour:
     avatar: {fileID: 21300000, guid: ac1659a7ad7c44f668df1a3ce61b5c3e, type: 3}
     nameColor: {r: 0, g: 0, b: 0, a: 0}
   damageList:
+  - name: "\u30B3\u30A8\u30EB"
+    message: "\u3044\u305F\u3044\uFF01\u3057\u3063\u304B\u308A\u907F\u3051\u3066\uFF5E....\uFF01"
+    avatar: {fileID: 0}
+    nameColor: {r: 0, g: 0.16788149, b: 1, a: 1}
   - name: "\u5143\u30C1\u30FC\u725B\u306E\u967D\u30AD\u30E3\u304F\u3093"
     message: "\u3046\u308F\u3044\u305F\u305D\u3046\u3060\u306A\u3041....."
     avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
@@ -50,10 +54,22 @@ MonoBehaviour:
     message: "\u3061\u3083\u3093\u3068\u3088\u3051\u308D"
     avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
     nameColor: {r: 0, g: 0, b: 0, a: 1}
-  - name: "\u30B3\u30A8\u30EB"
-    message: "\u3044\u305F\u3044\uFF01\u3057\u3063\u304B\u308A\u907F\u3051\u3066\uFF5E....\uFF01"
-    avatar: {fileID: 0}
-    nameColor: {r: 0, g: 0.16788149, b: 1, a: 1}
+  - name: 12
+    message: "\u3061\u3083\u3093\u3068\u3088\u3051\u308D"
+    avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: 12212
+    message: "\u3061\u3083\u3093\u3068\u3088\u3051\u308D"
+    avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: 121212121
+    message: "\u3061\u3083\u3093\u3068\u3088\u3051\u308D"
+    avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: 1212121212121212
+    message: "\u3061\u3083\u3093\u3068\u3088\u3051\u308D"
+    avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
   attackList:
   - name: "V\u30AA\u30BF"
     message: "\u304A\u304A\u304A\u304A\u304A\u304A"

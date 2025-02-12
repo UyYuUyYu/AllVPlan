@@ -23,8 +23,6 @@ public class AlternateShooterManager : MonoBehaviour
     public float moveUpOffset = 1.0f;
     [Tooltip("上昇／元に戻る移動時間")]
     public float moveDuration = 0.5f;
-    [Tooltip("玉の初速（投げる際の動きの速さに影響）")]
-    public float throwSpeed = 10f;
     [Tooltip("玉の飛行時間（ターゲットまでの移動時間）")]
     public float ballFlightDuration = 1.0f;
     [Tooltip("次の発射までの待機時間")]
@@ -83,12 +81,12 @@ public class AlternateShooterManager : MonoBehaviour
             // ※必要に応じて、targetPos = Camera.main.transform.position + Camera.main.transform.forward * 0.5f; などと調整可
 
             // 玉の初期スケールを小さく設定しておく（遠くから迫ってくる印象を出すため）
-            ball.transform.localScale = Vector3.one * 0.5f;
+            ball.transform.localScale = Vector3.one * 0.1f;
 
             // DOTween Sequence で移動とスケールアップを同時に実行
             Sequence ballSequence = DOTween.Sequence();
             ballSequence.Join(ball.transform.DOMove(targetPos, ballFlightDuration).SetEase(Ease.Linear));
-            ballSequence.Join(ball.transform.DOScale(54f, ballFlightDuration).SetEase(Ease.Linear));
+            ballSequence.Join(ball.transform.DOScale(0.3f, ballFlightDuration).SetEase(Ease.Linear));
             ballSequence.OnComplete(() =>
             {
                 OnBallReachedTarget();
