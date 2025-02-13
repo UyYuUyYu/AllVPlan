@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3711158, g: 0.19670735, b: 0.19755203, a: 1}
+  m_IndirectSpecularColor: {r: 0.37114608, g: 0.19654042, b: 0.19765946, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -34483,6 +34483,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2924799646409391628, guid: cfe8b364720bd044f8a9efe7c36ebea5, type: 3}
+      propertyPath: portraits.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: cec5c4f0da3b09641b71c7d9a9fa211e, type: 3}
+    - target: {fileID: 2924799646409391628, guid: cfe8b364720bd044f8a9efe7c36ebea5, type: 3}
+      propertyPath: portraits.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 912424c60a90ffc4a9121f59cc15e174, type: 3}
+    - target: {fileID: 2924799646409391628, guid: cfe8b364720bd044f8a9efe7c36ebea5, type: 3}
+      propertyPath: portraits.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: bef825a6b481ff9458eaad5dbf325154, type: 3}
+    - target: {fileID: 2924799646409391628, guid: cfe8b364720bd044f8a9efe7c36ebea5, type: 3}
+      propertyPath: portraits.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 26752895a2963f4459a82d647c09df73, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfe8b364720bd044f8a9efe7c36ebea5, type: 3}
 --- !u!4 &449930925 stripped
@@ -95480,6 +95496,7 @@ GameObject:
   - component: {fileID: 1931500395}
   - component: {fileID: 1931500394}
   - component: {fileID: 1931500393}
+  - component: {fileID: 1931500396}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -96068,8 +96085,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1931500241}
-  selectedCommands: []
+  - {fileID: 1931500259}
+  selectedCommands:
+  - {fileID: 1931500396}
   variables:
   - {fileID: 1931500271}
   description: 
@@ -97419,6 +97437,7 @@ MonoBehaviour:
   - {fileID: 1931500393}
   - {fileID: 1931500374}
   - {fileID: 1931500375}
+  - {fileID: 1931500396}
   - {fileID: 1931500376}
   - {fileID: 1931500368}
   - {fileID: 1931500366}
@@ -101527,6 +101546,34 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 0
   targetGameObjectOLD: {fileID: 0}
+--- !u!114 &1931500396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931500175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 225
+  indentLevel: 1
+  description: 
+  targetObject: {fileID: 180549265}
+  targetComponentAssemblyName: CommentManager, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: CommentManager
+  targetMethod: Attack
+  targetMethodText: 'Attack (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!1 &1933557321
 GameObject:
   m_ObjectHideFlags: 0
