@@ -1503,6 +1503,7 @@ GameObject:
   - component: {fileID: 915672401}
   - component: {fileID: 915672403}
   - component: {fileID: 915672402}
+  - component: {fileID: 915672405}
   - component: {fileID: 915672404}
   m_Layer: 5
   m_Name: HP_Full_1
@@ -1582,12 +1583,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Location: 0.448
-  m_Width: 0.131
+  m_Width: 0.552
   m_Softness: 1
-  m_Brightness: 1
-  m_Rotation: -38
-  m_Highlight: 1
+  m_Brightness: 0.38
+  m_Rotation: 139
+  m_Highlight: 0.193
   m_EffectMaterial: {fileID: 2100000, guid: 2d37c4afca8784ce9ab899810e29aa9c, type: 2}
+--- !u!114 &915672405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915672400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00d881ad4b724f46aa72e258da856e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectTime: 2
 --- !u!1 &941347275
 GameObject:
   m_ObjectHideFlags: 0
