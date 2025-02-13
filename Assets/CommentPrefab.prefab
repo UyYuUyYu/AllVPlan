@@ -75,7 +75,7 @@ RectTransform:
   m_GameObject: {fileID: 2522273855132555111}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.40225673, y: 0.40225673, z: 0.40225673}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3436956536246928269}
@@ -83,8 +83,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47.7, y: 1.0198}
-  m_SizeDelta: {x: 66.0443, y: 24.3207}
+  m_AnchoredPosition: {x: -46.269165, y: 0.2}
+  m_SizeDelta: {x: 171.9898, y: 62.371}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &591947839121801724
 CanvasRenderer:
@@ -115,12 +115,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 43bce127d27b74a66a29b68d0de90ddb, type: 3}
-    m_FontSize: 8
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: db87df109fcde13438b9873dd569ec92, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 120
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -155,7 +155,7 @@ RectTransform:
   m_GameObject: {fileID: 3385263663391371585}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.43434, y: 0.43434, z: 0.43434}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3436956536246928269}
@@ -163,8 +163,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40.8195, y: -0.6}
-  m_SizeDelta: {x: 105.5717, y: 27.3833}
+  m_AnchoredPosition: {x: 39.25556, y: -0.9775}
+  m_SizeDelta: {x: 231.9203, y: 64.7834}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4564954257127774328
 CanvasRenderer:
@@ -195,12 +195,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 9
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: db87df109fcde13438b9873dd569ec92, type: 3}
+    m_FontSize: 18
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 69
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1

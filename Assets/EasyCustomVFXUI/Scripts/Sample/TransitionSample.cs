@@ -26,7 +26,10 @@ public class TransitionSample : MonoBehaviour
                 entry.transitionCanvas.SetActive(false);
             }
         }
+        if(Cutin != null)
+        {
         Cutin.SetActive(true);
+        }
     }
 
     // Set progress of transition image

@@ -60,7 +60,7 @@ public class StrawberrySeedLauncher : MonoBehaviour
         if (isHighDifficulty)
         {
             // 高難易度モード時の調整例
-            seedShotCount = 8;         // 発射回数を増やす
+            seedShotCount = 2;         // 発射回数を増やす
             seedTravelTime = 0.3f;       // タネ移動を速くする
             seedShotInterval = 0.005f;     // タネ発射間隔を短くする
             delayBetweenRounds = 0.25f;     // シーケンス間の待機時間を短くする

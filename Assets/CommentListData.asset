@@ -67,7 +67,7 @@ MonoBehaviour:
     avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
     nameColor: {r: 0, g: 0, b: 0, a: 1}
   - name: 1212121212121212
-    message: "\u3061\u3083\u3093\u3068\u3088\u3051\u308D"
+    message: "\u3061\u3083\u3093\u3068\u3088\u3051\u308D\u3088\u75DB\u305D\u3046\u3060\u308D\uFF01\uFF01\uFF01"
     avatar: {fileID: 21300000, guid: 38ccc1258813909498d806f622c3edb6, type: 3}
     nameColor: {r: 0, g: 0, b: 0, a: 1}
   attackList:
