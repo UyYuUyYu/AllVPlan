@@ -532,7 +532,7 @@ MonoBehaviour:
   moveSpeed: 4
   jumpPower: 9
   jumpCount: 1
-  playerHP: 3
+  playerHP: 4
   now_KoeruPower: 0
   max_KoeruPower: 4
   getKoeruPowerTime: 3
