@@ -11,8 +11,9 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] float jumpPower=10f;
     [SerializeField] int jumpCount=1;
     [SerializeField] int playerHP=3;
+    int maxPlayerHP;
     [SerializeField] int now_KoeruPower = 0;
-    [SerializeField] int max_KoeruPower = 3;
+    [SerializeField] int max_KoeruPower = 4;
     [SerializeField] float getKoeruPowerTime = 15.0f;
 
     //PayerComponent
@@ -37,6 +38,7 @@ public class PlayerControler : MonoBehaviour
         nowJumpCount=jumpCount;
         direction=new Vector3(0,0,0);
         countTime = 0;
+        maxPlayerHP=playerHP;
     }
     void Awake()
     {
@@ -135,6 +137,20 @@ public class PlayerControler : MonoBehaviour
         now_KoeruPower = 0;
         gameUIManager.ChangeKoeruPowerPanel(now_KoeruPower, max_KoeruPower);
     }
+
+    [ContextMenu("Damege")]
+     public void Damege()
+    {
+        playerHP--;
+        gameUIManager.ChangeHPPanel(playerHP, maxPlayerHP);
+    }
+
+    [ContextMenu("ResetHP")]
+    public void ResetHP()
+    {
+        playerHP=maxPlayerHP;
+        gameUIManager.ChangeHPPanel(playerHP, maxPlayerHP);
+    }
    
     void OnCollisionEnter(Collision collision)
     {
@@ -145,7 +161,7 @@ public class PlayerControler : MonoBehaviour
                 nowJumpCount=jumpCount;
                 break;
             case "Bullet":
-                playerHP--;
+                Damege();
                 break;
             default:
                 break;
