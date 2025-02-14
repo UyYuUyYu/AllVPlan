@@ -17,6 +17,7 @@ public class PlayerAnimation : MonoBehaviour
 
     /// <summary>
     /// OTHER リストのインデックス 2 のアニメーションを再生
+    /// ダメージアニメーション
     /// </summary>
     public void DamageAnimation()
     {
