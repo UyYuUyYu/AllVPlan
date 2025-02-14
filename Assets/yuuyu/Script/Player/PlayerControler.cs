@@ -23,6 +23,8 @@ public class PlayerControler : MonoBehaviour
 
     GameUIManager gameUIManager;
 
+    PlayerAnimation playerAnimation;
+
 
     Vector3 direction;
     int nowJumpCount;
@@ -92,7 +94,7 @@ public class PlayerControler : MonoBehaviour
         {
             prayerRb.velocity = Vector3.up * jumpPower;
             nowJumpCount--;
-            
+
             //prayerRb.AddForce(new Vector3(0,jumpPower,0),ForceMode.Impulse);
         }
         #endregion
@@ -123,7 +125,7 @@ public class PlayerControler : MonoBehaviour
     {
         prayerRb.velocity = Vector3.up * jumpPower;
         nowJumpCount--;
-    }    
+    }
 
     [ContextMenu("AddKoeruPower")]
     public void AddKoeruPower()
@@ -151,7 +153,7 @@ public class PlayerControler : MonoBehaviour
         playerHP=maxPlayerHP;
         gameUIManager.ChangeHPPanel(playerHP, maxPlayerHP);
     }
-   
+
     void OnCollisionEnter(Collision collision)
     {
         string tagname=collision.gameObject.tag;
@@ -165,7 +167,7 @@ public class PlayerControler : MonoBehaviour
                 break;
             default:
                 break;
-        }    
+        }
     }
 
     /*外からダメージ判定を呼ぶ用ダメージに大きさを持たせる時

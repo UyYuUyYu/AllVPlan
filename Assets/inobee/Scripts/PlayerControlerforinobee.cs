@@ -30,8 +30,16 @@ public class PlayerControlerforinobee : MonoBehaviour
     // ブロックする方向を保持するリスト
     private List<Vector3> blockedDirections = new List<Vector3>();
 
+    GameUIManager gameUIManager;
+
+    public PlayerAnimation playerAnimation;
+
+    [SerializeField] int now_KoeruPower = 0;
+    [SerializeField] int max_KoeruPower = 4;
+
     void Start()
     {
+        gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
         prayerRb = this.GetComponent<Rigidbody>();
         nowJumpCount = jumpCount;
         direction = Vector3.zero;
@@ -104,7 +112,7 @@ public class PlayerControlerforinobee : MonoBehaviour
             // コントローラーの場合：斜め移動なら速度2倍
             if (Mathf.Abs(effectiveInput.x) > 0 && Mathf.Abs(effectiveInput.z) > 0)
             {
-            Debug.Log("Gamepad");
+                Debug.Log("Gamepad");
                 currentMoveSpeed *= 2.0f;
             }
             // ※ コントローラーでの上下のみ・左右のみはそのまま
@@ -165,6 +173,12 @@ public class PlayerControlerforinobee : MonoBehaviour
             case "Bullet":
                 Debug.Log("collider");
                 commentManager.Damage();
+                playerAnimation.DamageAnimation();
+                // ──────────────────────────────
+                // Bulletに当たった場合、1秒止める
+                // ──────────────────────────────
+                StartCoroutine(TemporarilyDisableMovement(1f));
+                gameUIManager.ShowPanelForSeconds();
                 break;
             default:
                 break;
@@ -175,15 +189,23 @@ public class PlayerControlerforinobee : MonoBehaviour
     {
         if (other.gameObject.tag == "energy")
         {
+            now_KoeruPower++;
             toggleEnabledCounter.StartCutin(cutin);
             // Fungusの "Energy" ブロックを実行
             flowchart.ExecuteBlock("Energy");
+            gameUIManager.ChangeKoeruPowerPanel(now_KoeruPower, max_KoeruPower);
             Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "Bullet")
         {
-            Debug.Log("hit trigger");
+            playerAnimation.DamageAnimation();
             commentManager.Damage();
+            // ──────────────────────────────
+            // こちらもトリガーでBulletに当たった場合
+            // 1秒止める
+            // ──────────────────────────────
+            StartCoroutine(TemporarilyDisableMovement(1f));
+            gameUIManager.ShowPanelForSeconds();
         }
     }
 
@@ -192,6 +214,12 @@ public class PlayerControlerforinobee : MonoBehaviour
         Debug.Log("Player damaged: " + damage);
         playerHP -= damage;
         commentManager.Damage();
+        playerAnimation.DamageAnimation();
+        // ──────────────────────────────
+        // ダメージを受けたときも1秒止める
+        // ──────────────────────────────
+        StartCoroutine(TemporarilyDisableMovement(1f));
+        gameUIManager.ShowPanelForSeconds();
     }
 
     /// <summary>
@@ -208,6 +236,16 @@ public class PlayerControlerforinobee : MonoBehaviour
     public void EnableMovement()
     {
         moveSpeed = originalSpeed;
+    }
+
+    /// <summary>
+    /// 一時的に移動を停止し、指定秒数後に元に戻す
+    /// </summary>
+    private IEnumerator TemporarilyDisableMovement(float duration)
+    {
+        DisableMovement();
+        yield return new WaitForSeconds(duration);
+        EnableMovement();
     }
 
     /// <summary>

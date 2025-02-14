@@ -98,15 +98,15 @@ public class SPUM_Prefabs : MonoBehaviour
         DEBUFF_List = new();
         DEATH_List = new();
         OTHER_List = new();
-        
+
         var groupedClips = spumPackages
         .SelectMany(package => package.SpumAnimationData)
-        .Where(spumClip => spumClip.HasData && 
-                        spumClip.UnitType.Equals(UnitType) && 
+        .Where(spumClip => spumClip.HasData &&
+                        spumClip.UnitType.Equals(UnitType) &&
                         spumClip.index > -1 )
         .GroupBy(spumClip => spumClip.StateType)
         .ToDictionary(
-            group => group.Key, 
+            group => group.Key,
             group => group.OrderBy(clip => clip.index).ToList()
         );
     // foreach (var item in groupedClips)
@@ -152,7 +152,7 @@ public class SPUM_Prefabs : MonoBehaviour
                     break;
             }
         }
-    
+
     }
     public void PlayAnimation(PlayerState PlayState, int index){
         Animator animator = _anim;
@@ -162,7 +162,7 @@ public class SPUM_Prefabs : MonoBehaviour
         OverrideController[PlayState.ToString()] = animations[index];
         //Debug.Log( OverrideController[PlayState.ToString()].name);
         var StateStr = PlayState.ToString();
-   
+
         bool isMove = StateStr.Contains("MOVE");
         bool isDebuff = StateStr.Contains("DEBUFF");
         bool isDeath = StateStr.Contains("DEATH");
@@ -193,12 +193,12 @@ public class SPUM_Prefabs : MonoBehaviour
     {
         // "Animations" 폴더에서 애니메이션 클립 로드
         AnimationClip clip = Resources.Load<AnimationClip>(clipPath.Replace(".anim", ""));
-        
+
         if (clip == null)
         {
             Debug.LogWarning($"Failed to load animation clip '{clipPath}'.");
         }
-        
+
         return clip;
     }
 }
