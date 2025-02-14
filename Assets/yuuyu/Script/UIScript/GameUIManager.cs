@@ -7,6 +7,7 @@ public class GameUIManager : MonoBehaviour
 {
 
     [SerializeField] GameObject[] KoeruPowerPanel;
+    [SerializeField] GameObject[] PlayerHPPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +26,21 @@ public class GameUIManager : MonoBehaviour
         for (int i= 1; i <= _maxKoeruPower; i++)
         {
             if(i<=_nowKoeruPower)
-                KoeruPowerPanel[i-1].SetActive(true);
+                KoeruPowerPanel[i-1].GetComponent<Image>().enabled=true;
             else
-                KoeruPowerPanel[i-1].SetActive(false);
+                KoeruPowerPanel[i-1].GetComponent<Image>().enabled=false;
         }
-
-       
     }
-
+    public void ChangeHPPanel(int _nowPlayerHP, int _maxPlayerHP)
+    {
+        for (int i= 1; i <= _maxPlayerHP; i++)
+        {
+            if(i<=_nowPlayerHP)
+                PlayerHPPanel[i-1].GetComponent<Image>().enabled=true;
+            else
+                PlayerHPPanel[i-1].GetComponent<Image>().enabled=false;
+        }
+    }
     
 
 }
