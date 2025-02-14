@@ -884,7 +884,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 66992414}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 66992448}
   variables: []
   description: 
   stepPause: 0
@@ -12301,6 +12302,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2542542431205787962, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542542431805943909, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1097
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542542431805943909, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969427024317563075, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

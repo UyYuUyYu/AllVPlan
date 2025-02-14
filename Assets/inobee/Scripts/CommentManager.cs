@@ -206,7 +206,7 @@ public class CommentManager : MonoBehaviour
 
     // damageList から候補リストを作成
     List<CommentListSO.CommentData> damageCandidates = new List<CommentListSO.CommentData>(commentListSO.damageList);
-    
+
     // 出力するコメントを格納するリスト
     List<CommentListSO.CommentData> selectedComments = new List<CommentListSO.CommentData>();
 
@@ -254,7 +254,7 @@ public class CommentManager : MonoBehaviour
     {
         isAttackMode = true;
 
-        int attackCount = Mathf.Min(commentListSO.attackList.Count, 5);
+        int attackCount = Mathf.Min(commentListSO.attackList.Count, 10);
         for (int i = 0; i < attackCount; i++)
         {
             var data = commentListSO.attackList[i];

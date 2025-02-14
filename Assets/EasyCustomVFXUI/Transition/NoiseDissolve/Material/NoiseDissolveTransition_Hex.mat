@@ -61,7 +61,7 @@ Material:
     - _EdgeWidth: 0.054
     - _NOISEPATTERN: 2
     - _NoiseEdgeWidth: 0.1
-    - _Progress: 1
+    - _Progress: -0.0009075403
     - _Tiling: 6.1
     m_Colors:
     - _Color: {r: 1, g: 0.39011812, b: 0.1372549, a: 0}

@@ -44,7 +44,7 @@ Material:
     - _GRADATIONSTARTPOINT: 0
     - _GradationAngle: 360
     - _PATTERNTYPE: 1
-    - _Progress: -0.0012660027
+    - _Progress: -0.0013023615
     - _Tiling: 10
     m_Colors:
     - _Color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 0}
