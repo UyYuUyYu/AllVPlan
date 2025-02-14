@@ -113,7 +113,7 @@ public class BulletHellAttack : MonoBehaviour
                 // spawnPoint の回転を基準に Y 軸周りに finalAngle 回転
                 Quaternion rotation = spawnPoint.rotation * Quaternion.Euler(0, finalAngle, 0);
                 // 発射時に Y 軸で 180 度回転（必要に応じて）
-                rotation = rotation * Quaternion.Euler(0, 180, 0);
+                rotation = rotation * Quaternion.Euler(0, -180, 0);
 
                 GameObject bullet = Instantiate(bulletPrefab, spawnPoint.position, rotation);
                 Destroy(bullet, bulletLifetime);

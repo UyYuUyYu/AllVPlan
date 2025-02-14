@@ -55,7 +55,7 @@ Material:
     m_Floats:
     - _BLINDPATTERN: 0
     - _Frequency: 4
-    - _Progress: -0.0011823177
+    - _Progress: -0.0008534193
     - _STRIPETYPE: 2
     m_Colors:
     - _Color: {r: 0.17354928, g: 0.7782128, b: 0.990566, a: 0}

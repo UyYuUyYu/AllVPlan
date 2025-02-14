@@ -20,7 +20,7 @@ public class StrawberrySeedLauncher : MonoBehaviour
     [Tooltip("いちごの回転にかかる時間")]
     private float rotationDuration = 0.5f;
     [Tooltip("回転時にY軸方向へ上昇させるオフセット（単位はワールド座標）")]
-    private float verticalOffset = 1f;
+    private float verticalOffset = 4f;
 
     [Header("LineRenderer（点滅）設定")]
     [Tooltip("LineRendererの点滅（点滅状態の継続時間）")]
@@ -82,13 +82,13 @@ public class StrawberrySeedLauncher : MonoBehaviour
             blinkingDuration = 0.5f;
             blinkInterval = 0.2f;
             // 通常はランダム選択する設定など
-   
+
         }
         StartCoroutine(SequenceCoroutine(count));
     }
 
     /// <summary>
-    /// シーケンス処理：指定された回数だけランダムな（または固定個数の）いちごを選び、  
+    /// シーケンス処理：指定された回数だけランダムな（または固定個数の）いちごを選び、
     /// 回転＋上昇→点滅→タネ発射→元の状態（回転・位置復帰）を行います。
     /// </summary>
     private IEnumerator SequenceCoroutine(int count)
@@ -98,7 +98,7 @@ public class StrawberrySeedLauncher : MonoBehaviour
             // ①【いちご選択】：選ばれるいちごの個数を決定
             int selectionCount = 0;
                 selectionCount = count;
-            
+
 
             // ①-2：0～(いちご数-1)のインデックスリストを作成しシャッフルして先頭 selectionCount 個を選ぶ
             List<int> indices = new List<int>();
@@ -135,8 +135,8 @@ public class StrawberrySeedLauncher : MonoBehaviour
     }
 
     /// <summary>
-    /// いちごひとつに対する処理（回転＋上昇→点滅→タネ発射→元の回転・位置復帰）  
-    /// インデックスにより回転の方向（＋90 or －90）を決定します。  
+    /// いちごひとつに対する処理（回転＋上昇→点滅→タネ発射→元の回転・位置復帰）
+    /// インデックスにより回転の方向（＋90 or －90）を決定します。
     /// いちご1,3,5（インデックス0,2,4）は＋90、いちご2,4（インデックス1,3）は－90に回転させます。
     /// </summary>
     /// <param name="index">対象のいちごのインデックス</param>

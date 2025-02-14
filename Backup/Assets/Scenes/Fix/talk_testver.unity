@@ -885,7 +885,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 66992414}
   selectedCommands:
-  - {fileID: 66992448}
+  - {fileID: 66992432}
   variables: []
   description: 
   stepPause: 0
@@ -911,8 +911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: "\u4FFA\u306F\u3069\u3053\u306B\u3067\u3082\u3044\u308BVtuber\u30AA\u30BF\u30AF\u3060\u3002\u597D\u304D\u306A\u3082\u306E\u306F\u30B2\u30FC\u30E0\u3068\u3000
-    Vtuber\u3002"
+  storyText: "\u4FFA\u306F\u3069\u3053\u306B\u3067\u3082\u3044\u308BVtuber\u30AA\u30BF\u30AF\u3060\u3002\u597D\u304D\u306A\u3082\u306E\u306F\u30B2\u30FC\u30E0\u3068Vtuber\u3002"
   description: 
   character: {fileID: 1054623101}
   portrait: {fileID: 0}
@@ -1083,7 +1082,7 @@ MonoBehaviour:
       typeAssemblyname: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Int32
-      intValue: 14
+      intValue: 18
       boolValue: 0
       floatValue: 0
       stringValue: 
@@ -1214,7 +1213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 17
   indentLevel: 0
-  storyText: "\u904E\u758E\u3063\u3066\u308B\u65B0\u4EBA\u306B\u300C\u3044\u3064\u3082\u898B\u3066\u307E\u3059\uFF01ROM\u52E2\u3067\u3059\u3051\u3069\u9811\u5F35\u3063\u3066\u304F\u3060\u3055\u3044\uFF01\u300D\u3068\u30B3\u30E1\u30F3\u30C8\u3059\u308B\u6148\u5584\u4E8B\u696D\u3092\u3057\u3066\u3044\u308B\u969B\u306B\u3075\u3068\u51FA\u4F1A\u3000\u3000\u3000\u3063\u305FVtuber\u3060\u3002"
+  storyText: "\u904E\u758E\u3063\u3066\u308B\u65B0\u4EBA\u306B\u300C\u3044\u3064\u3082\u898B\u3066\u307E\u3059\uFF01ROM\u52E2\u3067\u3059\u3051\u3069\u9811\u5F35\u3063\u3066\u304F\u3060\u3055\u3044\uFF01\u300D\u3068\u30B3\u30E1\u30F3\u30C8\u3059\u308B\u6148\u5584\u4E8B\u696D\u3092\u3057\u3066\u3044\u308B\u969B\u306B\u3075\u3068\u51FA\u4F1A\u3063\u305FVtuber\u3060\u3002"
   description: 
   character: {fileID: 1054623101}
   portrait: {fileID: 0}
@@ -1403,7 +1402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 69
   indentLevel: 0
-  storyText: "\u3055\u3066\u3001\u3068\u3044\u3063\u3066\u3082\u307E\u306010\u6642\u304B\u4ECA\u304B\u3089\u5BB6\u3092\u51FA\u3066\u3082\u5C11\u3057\u65E9\u3044\u306A..."
+  storyText: "\u3055\u3066\u3001\u3068\u3044\u3063\u3066\u3082\u307E\u306010\u6642\u304B\u3002\u4ECA\u304B\u3089\u5BB6\u3092\u51FA\u3066\u3082\u5C11\u3057\u65E9\u3044\u306A..."
   description: 
   character: {fileID: 1054623101}
   portrait: {fileID: 0}
@@ -1698,7 +1697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 82
   indentLevel: 0
-  storyText: "\u7DE0\u5207\u304C\u307B\u3057\u3044\u4EBA\r\u3001\u4F5C\u54C1\u3092\u898B\u3066\u307B\u3057\u3044\u4EBA\u3001\u4EA4\u6D41\u3057\u305F\u3044\u4EBA\u306B\u304A\u3059\u3059\u3081\u306A\u30B2\u30FC\u30E0\u30C0\u30F3\u30B8\u30E7\u30F37(\u516C\u5F0F\u30B5\u30A4\u30C8\u3088\u308A\u5F15\u7528)\u306B\u884C\u3053\u3046\u3068\u3057\u3066\u308B\u3000\u3000\u3000\u3068\u3053\u7533\u3057\u8A33\u306A\u3044\u3051\u3069\u3001\u3061\u3087\u3063\u3068\u805E\u3044\u3066\uFF01"
+  storyText: "\u7DE0\u5207\u304C\u307B\u3057\u3044\u4EBA\r\u3001\u4F5C\u54C1\u3092\u898B\u3066\u307B\u3057\u3044\u4EBA\u3001\u4EA4\u6D41\u3057\u305F\u3044\u4EBA\u306B\u304A\u3059\u3059\u3081\u306A\u30B2\u30FC\u30E0\u30C0\u30F3\u30B8\u30E7\u30F37(\u516C\u5F0F\u30B5\u30A4\u30C8\u3088\u308A\u5F15\u7528)\u306B\u884C\u3053\u3046\u3068\u3057\u3066\u308B\u3068\u3053\u7533\u3057\u8A33\u306A\u3044\u3051\u3069\u3001\u3061\u3087\u3063\u3068\u805E\u3044\u3066\uFF01"
   description: 
   character: {fileID: 564542844}
   portrait: {fileID: 0}
@@ -2041,8 +2040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 97
   indentLevel: 0
-  storyText: "\u3067\u3082\u306D\u3001\u7121\u7406\u306B\u8A70\u3081\u8FBC\u307E\u308C\u305F\u9802\u70B9\u30C7\u30FC\u30BF\u304C\u591A\u3059\u304E\u305F\u304B\u3089\u3001\u30EC\u30F3\u30C0\u30EA\u30F3\u30B0\u306E\u9650\u754C\u3092\u8D85\u3048\u3061\u3083\u3063\u3066\u7E4A\u7D30\u306A\u9802\u70B9\u305F\u3061\u304C\u6B21\u3005\u3068\u72C2\u3044\u51FA        
-    \u3000\u3000\u3000\u3057\u3066\u3001\u6C17\u304C\u4ED8\u3044\u305F\u3089\u5DE8\u5927\u5316\u3057\u3066\u66B4\u8D70\u3057\u3061\u3083\u3063\u305F\u306E\u2026\uFF01"
+  storyText: "\u3067\u3082\u306D\u3001\u7121\u7406\u306B\u8A70\u3081\u8FBC\u307E\u308C\u305F\u9802\u70B9\u30C7\u30FC\u30BF\u304C\u591A\u3059\u304E\u305F\u304B\u3089\u3001\u30EC\u30F3\u30C0\u30EA\u30F3\u30B0\u306E\u9650\u754C\u3092\u8D85\u3048\u3061\u3083\u3063\u3066\u7E4A\u7D30\u306A\u9802\u70B9\u305F\u3061\u304C\u6B21\u3005\u3068\u72C2\u3044\u51FA\u3057\u3066\u3001\u6C17\u304C\u4ED8\u3044\u305F\u3089\u5DE8\u5927\u5316\u3057\u3066\u66B4\u8D70\u3057\u3061\u3083\u3063\u305F\u306E\u2026\uFF01"
   description: 
   character: {fileID: 564542844}
   portrait: {fileID: 0}
@@ -2069,7 +2067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 96
   indentLevel: 0
-  storyText: "\u9577\u8A71\u3057\u3066\u3044\u308B\u6642\u9593\u306F\u306A\u3044\u308F\uFF01\u4ECA\u305D\u306E\u8A08\u753B\u306E\u305B\u3044\u3067\u3001\u4E16\u754C\u4E2D\u306E\u3042\u308A\u3068\u3042\u3089\u3086\u308B\u3082\u306E\u304C3D\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u306B\u3055\u308C\u308B\u546A\u3044\u304C\u304B\u3051\u3089\u308C\u3066\u3000\u3000\u3000\u308B\u306E\uFF01"
+  storyText: "\u9577\u8A71\u3057\u3066\u3044\u308B\u6642\u9593\u306F\u306A\u3044\u308F\uFF01\u4ECA\u305D\u306E\u8A08\u753B\u306E\u305B\u3044\u3067\u3001\u4E16\u754C\u4E2D\u306E\u3042\u308A\u3068\u3042\u3089\u3086\u308B\u3082\u306E\u304C3D\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u306B\u3055\u308C\u308B\u546A\u3044\u304C\u304B\u3051\u3089\u308C\u3066\u308B\u306E\uFF01"
   description: 
   character: {fileID: 564542844}
   portrait: {fileID: 0}
@@ -12216,6 +12214,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542542431137914713, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -88.18884
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542542431137914713, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -337.04736
+      objectReference: {fileID: 0}
     - target: {fileID: 2542542431205787948, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
       propertyPath: m_Name
       value: SayDialog
@@ -12306,11 +12312,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2542542431805943909, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1097
+      value: 1137
       objectReference: {fileID: 0}
     - target: {fileID: 2542542431805943909, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 110
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 6969427024317563075, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
       propertyPath: m_IsActive
