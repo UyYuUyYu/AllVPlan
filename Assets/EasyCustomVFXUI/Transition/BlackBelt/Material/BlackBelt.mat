@@ -39,7 +39,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Progress: -0.0013797283
+    - _Progress: -0.00036656857
     - _Size: 0.505
     - _TYPE: 0
     m_Colors:
