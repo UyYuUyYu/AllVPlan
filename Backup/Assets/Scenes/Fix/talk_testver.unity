@@ -882,8 +882,7 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 66992334}
+  selectedBlocks: []
   selectedCommands: []
   variables: []
   description: 
@@ -1081,7 +1080,7 @@ MonoBehaviour:
       typeAssemblyname: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Int32
-      intValue: 18
+      intValue: 9
       boolValue: 0
       floatValue: 0
       stringValue: 

@@ -30010,7 +30010,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 255161986115667958, guid: 4ba5e60f46a7d43cdb864c41dcf1c843, type: 3}
       propertyPath: effectSize.Array.data[0]
-      value: 1.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 255161986115667958, guid: 4ba5e60f46a7d43cdb864c41dcf1c843, type: 3}
       propertyPath: effectSize.Array.data[1]
@@ -101595,6 +101595,7 @@ GameObject:
   - component: {fileID: 1931500403}
   - component: {fileID: 1931500402}
   - component: {fileID: 1931500405}
+  - component: {fileID: 1931500406}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -102184,8 +102185,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1931500259}
+  selectedCommands:
+  - {fileID: 1931500406}
   variables:
   - {fileID: 1931500271}
   description: 
@@ -102212,7 +102215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -8.73237
+    x: -12.73237
     y: 100.072296
     width: 128
     height: 40
@@ -103495,7 +103498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -114.336555
+    x: -118.336555
     y: 271.16714
     width: 94
     height: 40
@@ -103523,6 +103526,7 @@ MonoBehaviour:
   - {fileID: 1931500319}
   - {fileID: 1931500318}
   - {fileID: 1931500317}
+  - {fileID: 1931500406}
   - {fileID: 1931500316}
   - {fileID: 1931500315}
   - {fileID: 1931500314}
@@ -107879,6 +107883,51 @@ MonoBehaviour:
   parentBlock: {fileID: 1931500195}
   suppressBlockAutoSelect: 0
   waitForFrames: 1
+--- !u!114 &1931500406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931500175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 232
+  indentLevel: 1
+  description: 
+  targetObject: {fileID: 160931764}
+  targetComponentAssemblyName: EnemyEffect, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: EnemyEffect
+  targetMethod: EnemyScaleChange
+  targetMethodText: 'EnemyScaleChange (Int32): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Int32
+      intValue: 2
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!1 &1933557321
 GameObject:
   m_ObjectHideFlags: 0
