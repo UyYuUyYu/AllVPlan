@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyEffect : MonoBehaviour
 {
+    [SerializeField] float[] effectSize;
+    [SerializeField] GameObject enemyEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +18,9 @@ public class EnemyEffect : MonoBehaviour
     {
         
     }
+    public void EnemyScaleChange(int _num)
+    {
+        enemyEffect.transform.localScale=new Vector3(effectSize[_num],effectSize[_num],effectSize[_num]);
+    }
+
 }
