@@ -55,8 +55,8 @@ Material:
     m_Floats:
     - _BLINDPATTERN: 0
     - _Frequency: 4
-    - _Progress: -0.00057172775
+    - _Progress: -0.0011823177
     - _STRIPETYPE: 2
     m_Colors:
-    - _Color: {r: 0.30588233, g: 1, b: 0.5700139, a: 0}
+    - _Color: {r: 0.17354928, g: 0.7782128, b: 0.990566, a: 0}
   m_BuildTextureStacks: []
