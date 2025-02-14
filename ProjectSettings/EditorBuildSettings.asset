@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/yuuyu/Scene/Title.unity
+    path: Assets/Scenes/Fix/Title.unity
     guid: 94b924d8cc2a6406ca5b7c964a3ed4af
   - enabled: 1
     path: Assets/Scenes/Fix/talk_testver.unity
