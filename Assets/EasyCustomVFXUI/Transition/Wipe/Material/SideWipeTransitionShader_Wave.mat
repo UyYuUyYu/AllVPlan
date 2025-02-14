@@ -47,7 +47,7 @@ Material:
     m_Floats:
     - _DIRECTION: 0
     - _GRADATIONSTARTPOINT: 3
-    - _Progress: -0.00036501884
+    - _Progress: 1
     - _RadiationAmount: 16
     - _ScrollSpeed: -1.05
     - _WIPETYPE: 1
