@@ -2,31 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gamemanager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    static int koeruSubscriber=0;
+    static float playerPoint=0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //移動と相手の奥からくる弾を避ける
-    public void Phase1()
-    {
-        
-    }
-    public void Phase2()
-    {
-        
-    }
-    public void Phase3()
-    {
-        
-    }
+    
 }
