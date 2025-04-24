@@ -77,6 +77,7 @@ public class PlayerControler : MonoBehaviour
         #region キー入力
         if(Input.GetKey(KeyCode.D))
         {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             koeruAnimator.SetBool("isRun", true);
             transform.position+=new Vector3(moveSpeed*Time.deltaTime,0,0);
         }
@@ -87,6 +88,7 @@ public class PlayerControler : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.A))
         {
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
             koeruAnimator.SetBool("isRun", true);
             transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
         }
@@ -140,6 +142,14 @@ public class PlayerControler : MonoBehaviour
     {
         koeruAnimator.SetBool("isRun", true);
         var value=context.ReadValue<Vector2>();
+        if(value.x>0)
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
         //direction=new Vector3(value.x,0,0).normalized;
         direction = new Vector3(value.x, 0, value.y).normalized;
     }
