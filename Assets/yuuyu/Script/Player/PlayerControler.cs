@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,11 +31,13 @@ public class PlayerControler : MonoBehaviour
     int nowJumpCount;
     float countTime;
 
+    private Animator koeruAnimator; 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        koeruAnimator = gameObject.GetComponent<Animator>();
         gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
         prayerRb=this.GetComponent<Rigidbody>();
         nowJumpCount=jumpCount;
@@ -76,19 +79,43 @@ public class PlayerControler : MonoBehaviour
         #region キー入力
         if(Input.GetKey(KeyCode.D))
         {
+            koeruAnimator.SetBool("IsRun", true);
             transform.position+=new Vector3(moveSpeed*Time.deltaTime,0,0);
+        }
+        if(Input.GetKeyUp(KeyCode.D))
+        {
+            koeruAnimator.SetBool("IsRun", false);
+            direction=Vector3.zero;
         }
         if(Input.GetKey(KeyCode.A))
         {
+            koeruAnimator.SetBool("IsRun", true);
             transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
+        }
+        if(Input.GetKeyUp(KeyCode.A))
+        {
+            koeruAnimator.SetBool("IsRun", false);
+            direction=Vector3.zero;
         }
         if (Input.GetKey(KeyCode.W))
         {
+            koeruAnimator.SetBool("IsRun", true);
             transform.position += new Vector3(0, 0, moveSpeed * Time.deltaTime);
+        }
+         if(Input.GetKeyUp(KeyCode.W))
+        {
+            koeruAnimator.SetBool("IsRun", false);
+            direction=Vector3.zero;
         }
         if (Input.GetKey(KeyCode.S))
         {
+            koeruAnimator.SetBool("IsRun", true);
             transform.position -= new Vector3(0, 0, moveSpeed * Time.deltaTime);
+        }
+         if(Input.GetKeyUp(KeyCode.S))
+        {
+            koeruAnimator.SetBool("IsRun", false);
+            direction=Vector3.zero;
         }
         if (Input.GetKeyDown(KeyCode.Space)&&(nowJumpCount>0))
         {
@@ -113,12 +140,14 @@ public class PlayerControler : MonoBehaviour
 
     void OnMove(InputAction.CallbackContext context)
     {
+        koeruAnimator.SetBool("IsRun", true);
         var value=context.ReadValue<Vector2>();
         //direction=new Vector3(value.x,0,0).normalized;
         direction = new Vector3(value.x, 0, value.y).normalized;
     }
     void OnMoveStop(InputAction.CallbackContext context)
     {
+        koeruAnimator.SetBool("IsRun", false);
         direction=Vector3.zero;
     }
     void OnJump(InputAction.CallbackContext context)
