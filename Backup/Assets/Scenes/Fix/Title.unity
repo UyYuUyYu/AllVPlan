@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571363, b: 0.30692217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1747,7 +1747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496e41dc96244c24bb155af7f149a6c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: talk1
+  nextSceneName: talk_testver
   transitionSample: {fileID: 175258896}
 --- !u!1 &417328253
 GameObject:
