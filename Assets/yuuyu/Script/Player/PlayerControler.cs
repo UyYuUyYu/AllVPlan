@@ -119,6 +119,7 @@ public class PlayerControler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space)&&(nowJumpCount>0))
         {
+            koeruAnimator.SetBool("isJump", true);
             prayerRb.velocity = Vector3.up * jumpPower;
             nowJumpCount--;
 
@@ -160,6 +161,7 @@ public class PlayerControler : MonoBehaviour
     }
     void OnJump(InputAction.CallbackContext context)
     {
+        koeruAnimator.SetBool("isJump", true);
         prayerRb.velocity = Vector3.up * jumpPower;
         nowJumpCount--;
     }
@@ -197,6 +199,7 @@ public class PlayerControler : MonoBehaviour
         switch(tagname)
         {
             case "Grand":
+                koeruAnimator.SetBool("isJump", false);
                 nowJumpCount=jumpCount;
                 break;
             case "Bullet":

@@ -40,7 +40,8 @@ public class StageManager : MonoBehaviour
         DefaultIncreesSubscribe();
         if((int)subscribeMoney==targetSubscribeMoney)
         {
-            print("Clear");
+            
+            StageClear();
         }
 
     }
@@ -49,5 +50,10 @@ public class StageManager : MonoBehaviour
     {
         subscribeMoneyText.text=subscribeMoney.ToString("f0");
         subscribeMoney+=ratioInreeesSubscription*_koeruSubscriber*Time.deltaTime;
+    }
+
+    public void StageClear()
+    {
+        print("Clear");
     }
 }
