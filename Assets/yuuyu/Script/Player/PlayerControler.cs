@@ -31,13 +31,16 @@ public class PlayerControler : MonoBehaviour
     int nowJumpCount;
     float countTime;
 
-    private Animator koeruAnimator; 
+
+    private Animator koeruAnimator;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        koeruAnimator = gameObject.GetComponent<Animator>();
+
+        koeruAnimator= gameObject.GetComponent<Animator>();
+
         gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
         prayerRb=this.GetComponent<Rigidbody>();
         nowJumpCount=jumpCount;
@@ -79,46 +82,61 @@ public class PlayerControler : MonoBehaviour
         #region キー入力
         if(Input.GetKey(KeyCode.D))
         {
-            koeruAnimator.SetBool("IsRun", true);
+
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            koeruAnimator.SetBool("isRun", true);
+
             transform.position+=new Vector3(moveSpeed*Time.deltaTime,0,0);
         }
         if(Input.GetKeyUp(KeyCode.D))
         {
-            koeruAnimator.SetBool("IsRun", false);
+
+            koeruAnimator.SetBool("isRun", false);
+
             direction=Vector3.zero;
         }
         if(Input.GetKey(KeyCode.A))
         {
-            koeruAnimator.SetBool("IsRun", true);
+
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            koeruAnimator.SetBool("isRun", true);
+
             transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
         }
         if(Input.GetKeyUp(KeyCode.A))
         {
-            koeruAnimator.SetBool("IsRun", false);
+
+            koeruAnimator.SetBool("isRun", false);
+
             direction=Vector3.zero;
         }
         if (Input.GetKey(KeyCode.W))
         {
-            koeruAnimator.SetBool("IsRun", true);
+
+            koeruAnimator.SetBool("isRun", true);
             transform.position += new Vector3(0, 0, moveSpeed * Time.deltaTime);
         }
-         if(Input.GetKeyUp(KeyCode.W))
+        if(Input.GetKeyUp(KeyCode.W))
         {
-            koeruAnimator.SetBool("IsRun", false);
+            koeruAnimator.SetBool("isRun", false);
+
             direction=Vector3.zero;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            koeruAnimator.SetBool("IsRun", true);
+
+            koeruAnimator.SetBool("isRun", true);
             transform.position -= new Vector3(0, 0, moveSpeed * Time.deltaTime);
         }
-         if(Input.GetKeyUp(KeyCode.S))
+        if(Input.GetKeyUp(KeyCode.S))
         {
-            koeruAnimator.SetBool("IsRun", false);
+            koeruAnimator.SetBool("isRun", false);
+
             direction=Vector3.zero;
         }
         if (Input.GetKeyDown(KeyCode.Space)&&(nowJumpCount>0))
         {
+            koeruAnimator.SetBool("isJump", true);
             prayerRb.velocity = Vector3.up * jumpPower;
             nowJumpCount--;
 
@@ -140,18 +158,31 @@ public class PlayerControler : MonoBehaviour
 
     void OnMove(InputAction.CallbackContext context)
     {
-        koeruAnimator.SetBool("IsRun", true);
+
+        koeruAnimator.SetBool("isRun", true);
+
         var value=context.ReadValue<Vector2>();
+        if(value.x>0)
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
         //direction=new Vector3(value.x,0,0).normalized;
         direction = new Vector3(value.x, 0, value.y).normalized;
     }
     void OnMoveStop(InputAction.CallbackContext context)
     {
-        koeruAnimator.SetBool("IsRun", false);
+
+        koeruAnimator.SetBool("isRun", false);
+
         direction=Vector3.zero;
     }
     void OnJump(InputAction.CallbackContext context)
     {
+        koeruAnimator.SetBool("isJump", true);
         prayerRb.velocity = Vector3.up * jumpPower;
         nowJumpCount--;
     }
@@ -189,6 +220,7 @@ public class PlayerControler : MonoBehaviour
         switch(tagname)
         {
             case "Grand":
+                koeruAnimator.SetBool("isJump", false);
                 nowJumpCount=jumpCount;
                 break;
             case "Bullet":

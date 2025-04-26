@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Fix/Tutorial.unity
     guid: e953787e6a4ff4045921da1a16f6f274
   - enabled: 1
+    path: Assets/Scenes/Fix/Loading2.unity
+    guid: 539820b13aad04afcabbbbbfa8f309a5
+  - enabled: 1
     path: Assets/Scenes/Fix/PlayGame.unity
     guid: 5f70f44ee0e7b054e92cf54782a1eb47
   - enabled: 1

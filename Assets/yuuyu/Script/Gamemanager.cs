@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    static int koeruSubscriber=0;
-    static float playerPoint=0;
 
-    
+    public static int koeruSubscriber=1;
+    public static int playerPoint=1;
+
 }
