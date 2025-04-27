@@ -110,6 +110,7 @@ public class PlayerControler : MonoBehaviour
 
             direction=Vector3.zero;
         }
+        /*
         if (Input.GetKey(KeyCode.W))
         {
 
@@ -122,11 +123,12 @@ public class PlayerControler : MonoBehaviour
 
             direction=Vector3.zero;
         }
+        */
         if (Input.GetKey(KeyCode.S))
         {
 
             koeruAnimator.SetBool("isRun", true);
-            transform.position -= new Vector3(0, 0, moveSpeed * Time.deltaTime);
+            //transform.position -= new Vector3(0, 0, moveSpeed * Time.deltaTime);
         }
         if(Input.GetKeyUp(KeyCode.S))
         {
