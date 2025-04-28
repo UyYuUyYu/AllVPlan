@@ -10,7 +10,7 @@ public class CommentListSO : ScriptableObject
         public string name;
         public string message;
         public Sprite avatar;
-        public Color nameColor; // Add color property for the name
+        public Color BGColor; // Add color property for the name
     }
 
     public List<CommentData> normalList = new List<CommentData>();

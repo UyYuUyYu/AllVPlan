@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextAttack : MonoBehaviour
 {
-    [SerializeField]float moveSpeed=2.0f;
+    float moveSpeed=2.0f;
     private bool isStartAttack=false;
     private TextMesh textMesh;
     private BoxCollider boxCollider;
@@ -13,12 +13,18 @@ public class TextAttack : MonoBehaviour
 
     void Awake()
     {
-       
+        //Destroy(this.gameObject, 5.0f);
     }
-    void Update()
+  void Start()
+  {
+    Destroy(this.gameObject, 5.0f);
+  }
+  void Update()
     {
-        if(isStartAttack)
-            transform.position+=new Vector3(-moveSpeed*Time.deltaTime,0,0);
+        if (isStartAttack)
+            transform.position += new Vector3(-moveSpeed * Time.deltaTime, 0, 0);
+
+
     }
     public void SetUpText(string _text,float _speed)
     {

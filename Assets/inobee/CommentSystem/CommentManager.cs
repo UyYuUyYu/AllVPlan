@@ -35,6 +35,12 @@ public class CommentManager : MonoBehaviour
     private bool isAttackMode = false;
     private Coroutine normalCommentCoroutine;
     private int normalIndex = 0; // normalList を順番に参照するためのインデックス
+        [Header("▼ 文字攻撃の設定")]
+
+    public TextAttackSpawner attackSpawner; // Inspector でアタッチする
+    [SerializeField]
+    private float attackTextSpeed = 50.0f;
+    private int attackTextPosNum = 0;
 
     public void StartComment()
     {
@@ -105,7 +111,7 @@ public class CommentManager : MonoBehaviour
             if (nameText != null)
             {
                 nameText.text = data.name;
-                nameText.color = data.nameColor;
+                nameText.color = data.BGColor;
             }
             // 名前が「コエル」のときだけ Avatar を表示
             if (avatarTr != null)
@@ -124,6 +130,8 @@ public class CommentManager : MonoBehaviour
                     avatarTr.gameObject.SetActive(false);
                 }
             }
+     int randomPos = Random.Range(0, attackSpawner.GeneratePositionCount); // ← 正しくランダムに
+        attackSpawner.GenerateAttackText(data.message, attackTextSpeed, randomPos);
         }
         if (messageTr != null)
         {
