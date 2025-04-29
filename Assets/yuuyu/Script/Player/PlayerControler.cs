@@ -33,16 +33,22 @@ public class PlayerControler : MonoBehaviour
 
 
     private Animator koeruAnimator;
+    private bool isSitKoeru;
+    private BoxCollider koeruCollider;
+    private Vector3 defofoColliderSize,defoColliderCenter;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        isSitKoeru=false;
         koeruAnimator= gameObject.GetComponent<Animator>();
 
         gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
         prayerRb=this.GetComponent<Rigidbody>();
+        koeruCollider=this.GetComponent<BoxCollider>();
+        defofoColliderSize=koeruCollider.size;
+        defoColliderCenter=koeruCollider.center;
         nowJumpCount=jumpCount;
         direction=new Vector3(0,0,0);
         countTime = 0;
@@ -80,60 +86,76 @@ public class PlayerControler : MonoBehaviour
         #endregion
 
         #region キー入力
-        if(Input.GetKey(KeyCode.D))
+        if(koeruAnimator.GetCurrentAnimatorStateInfo(0).IsName("Koeru_Stand"))
         {
-
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            koeruAnimator.SetBool("isRun", true);
-
-            transform.position+=new Vector3(moveSpeed*Time.deltaTime,0,0);
+            isSitKoeru=false;
         }
-        if(Input.GetKeyUp(KeyCode.D))
+        if(!isSitKoeru)
         {
+            if(Input.GetKey(KeyCode.D))
+            {
 
-            koeruAnimator.SetBool("isRun", false);
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                koeruAnimator.SetBool("isRun", true);
 
-            direction=Vector3.zero;
+                transform.position+=new Vector3(moveSpeed*Time.deltaTime,0,0);
+            }
+            if(Input.GetKeyUp(KeyCode.D))
+            {
+                
+                koeruAnimator.SetBool("isRun", false);
+
+                direction=Vector3.zero;
+            }
+            if(Input.GetKey(KeyCode.A))
+            {
+
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                koeruAnimator.SetBool("isRun", true);
+
+                transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
+            }
+            if(Input.GetKeyUp(KeyCode.A))
+            {
+
+                koeruAnimator.SetBool("isRun", false);
+
+                direction=Vector3.zero;
+            }
+            /*
+            if (Input.GetKey(KeyCode.W))
+            {
+
+                koeruAnimator.SetBool("isRun", true);
+                transform.position += new Vector3(0, 0, moveSpeed * Time.deltaTime);
+            }
+            if(Input.GetKeyUp(KeyCode.W))
+            {
+                koeruAnimator.SetBool("isRun", false);
+
+                direction=Vector3.zero;
+            }
+            */
         }
-        if(Input.GetKey(KeyCode.A))
-        {
-
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            koeruAnimator.SetBool("isRun", true);
-
-            transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
-        }
-        if(Input.GetKeyUp(KeyCode.A))
-        {
-
-            koeruAnimator.SetBool("isRun", false);
-
-            direction=Vector3.zero;
-        }
-        /*
-        if (Input.GetKey(KeyCode.W))
-        {
-
-            koeruAnimator.SetBool("isRun", true);
-            transform.position += new Vector3(0, 0, moveSpeed * Time.deltaTime);
-        }
-        if(Input.GetKeyUp(KeyCode.W))
-        {
-            koeruAnimator.SetBool("isRun", false);
-
-            direction=Vector3.zero;
-        }
-        */
+        
         if (Input.GetKey(KeyCode.S))
         {
-
-            koeruAnimator.SetBool("isRun", true);
+            isSitKoeru=true;
+            koeruAnimator.SetBool("isSit", true);
+            Vector3 size=defofoColliderSize;
+            size.y=defofoColliderSize.y*0.8f;
+            koeruCollider.size=size;
+            size=defoColliderCenter;
+            size.y=defoColliderCenter.y*0.8f;
+            koeruCollider.center=size;
             //transform.position -= new Vector3(0, 0, moveSpeed * Time.deltaTime);
         }
         if(Input.GetKeyUp(KeyCode.S))
         {
-            koeruAnimator.SetBool("isRun", false);
-
+            
+            koeruAnimator.SetBool("isSit", false);
+            koeruCollider.size=defofoColliderSize;
+            koeruCollider.center=defoColliderCenter;;
             direction=Vector3.zero;
         }
         if (Input.GetKeyDown(KeyCode.Space)&&(nowJumpCount>0))
