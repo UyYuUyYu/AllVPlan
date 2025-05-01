@@ -14,7 +14,7 @@ public class FloorGImic : MonoBehaviour
     void Start()
     {
         floorCollider=this.GetComponent<BoxCollider>();
-        player=GameObject.Find("Player");
+        player=GameObject.Find("Koeruchan");
         offset=(player.transform.localScale.y/2)+(this.transform.localScale.y/2);
 
     }

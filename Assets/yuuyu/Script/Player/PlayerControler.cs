@@ -34,8 +34,9 @@ public class PlayerControler : MonoBehaviour
 
     private Animator koeruAnimator;
     private bool isSitKoeru;
-    private BoxCollider koeruCollider;
     private Vector3 defofoColliderSize,defoColliderCenter;
+
+    [SerializeField] GameObject standCollider,sitCollider,jumpCollider;
 
 
     // Start is called before the first frame update
@@ -46,13 +47,12 @@ public class PlayerControler : MonoBehaviour
 
         gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
         prayerRb=this.GetComponent<Rigidbody>();
-        koeruCollider=this.GetComponent<BoxCollider>();
-        defofoColliderSize=koeruCollider.size;
-        defoColliderCenter=koeruCollider.center;
         nowJumpCount=jumpCount;
         direction=new Vector3(0,0,0);
         countTime = 0;
         maxPlayerHP=playerHP;
+        standCollider.SetActive(true);
+
     }
     void Awake()
     {
@@ -142,32 +142,31 @@ public class PlayerControler : MonoBehaviour
         {
             isSitKoeru=true;
             koeruAnimator.SetBool("isSit", true);
-            Vector3 size=defofoColliderSize;
-            size.y=defofoColliderSize.y*0.8f;
-            koeruCollider.size=size;
-            size=defoColliderCenter;
-            size.y=defoColliderCenter.y*0.8f;
-            koeruCollider.center=size;
+            standCollider.SetActive(false);
+            sitCollider.SetActive(true);
             //transform.position -= new Vector3(0, 0, moveSpeed * Time.deltaTime);
         }
         if(Input.GetKeyUp(KeyCode.S))
         {
             
             koeruAnimator.SetBool("isSit", false);
-            koeruCollider.size=defofoColliderSize;
-            koeruCollider.center=defoColliderCenter;;
+            sitCollider.SetActive(false);
+            standCollider.SetActive(true);
             direction=Vector3.zero;
         }
-        if (Input.GetKeyDown(KeyCode.Space)&&(nowJumpCount>0))
+        if ((Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.W))&&(nowJumpCount>0))
         {
             koeruAnimator.SetBool("isJump", true);
             prayerRb.velocity = Vector3.up * jumpPower;
             nowJumpCount--;
+            standCollider.SetActive(false);
+            jumpCollider.SetActive(true);
 
             //prayerRb.AddForce(new Vector3(0,jumpPower,0),ForceMode.Impulse);
         }
         #endregion
 
+        /*
         #region コエルパワー
         countTime += Time.deltaTime;
         if(countTime>getKoeruPowerTime)
@@ -177,6 +176,7 @@ public class PlayerControler : MonoBehaviour
                 AddKoeruPower();
         }
         #endregion
+        */
 
     }
 
@@ -227,6 +227,7 @@ public class PlayerControler : MonoBehaviour
     [ContextMenu("Damege")]
      public void Damege()
     {
+        print("Damege");
         playerHP--;
         gameUIManager.ChangeHPPanel(playerHP, maxPlayerHP);
     }
@@ -238,17 +239,36 @@ public class PlayerControler : MonoBehaviour
         gameUIManager.ChangeHPPanel(playerHP, maxPlayerHP);
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        string tagname=other.gameObject.tag;
+        switch(tagname)
+        {
+            case "Grand":
+                koeruAnimator.SetBool("isJump", false);
+                
+                jumpCollider.SetActive(false);
+                standCollider.SetActive(true);
+                
+                nowJumpCount=jumpCount;
+                break;
+            case "Bullet":
+                
+                //Damege();
+                break;
+            default:
+                break;
+        }
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         string tagname=collision.gameObject.tag;
         switch(tagname)
         {
-            case "Grand":
-                koeruAnimator.SetBool("isJump", false);
-                nowJumpCount=jumpCount;
-                break;
+            
             case "Bullet":
-                Damege();
+                //Damege();
                 break;
             default:
                 break;

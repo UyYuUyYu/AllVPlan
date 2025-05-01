@@ -48,6 +48,7 @@ public class TextAttack : MonoBehaviour
     {
         if(other.gameObject.tag=="Player")
         {
+            other.gameObject.GetComponentInParent<PlayerControler>().Damege();
             Destroy(this.gameObject);
         }
 
