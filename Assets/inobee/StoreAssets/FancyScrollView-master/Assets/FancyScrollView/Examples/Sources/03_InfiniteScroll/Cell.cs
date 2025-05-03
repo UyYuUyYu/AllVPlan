@@ -18,6 +18,11 @@ namespace FancyScrollView.Example03
         [SerializeField] Image imageLarge = default;
         [SerializeField] Button button = default;
 
+        //ここから追加
+        [SerializeField] Text stageNumber;
+        [SerializeField] Sprite[] stageSamune;
+        [SerializeField] Image setSameuneImage;
+
         static class AnimatorHash
         {
             public static readonly int Scroll = Animator.StringToHash("scroll");
@@ -26,6 +31,8 @@ namespace FancyScrollView.Example03
         void Start()
         {
             button.onClick.AddListener(() => Context.OnCellClicked?.Invoke(Index));
+            
+            
         }
 
         public override void UpdateContent(ItemData itemData)
@@ -33,10 +40,23 @@ namespace FancyScrollView.Example03
             message.text = itemData.Message;
             messageLarge.text = Index.ToString();
 
+            /*
             var selected = Context.SelectedIndex == Index;
             imageLarge.color = image.color = selected
                 ? new Color32(0, 255, 255, 100)
                 : new Color32(255, 255, 255, 77);
+            */
+            
+            
+            var selected = Context.SelectedIndex == Index;
+            image.color = selected
+                ? new Color32(0, 0, 0, 200)
+                : new Color32(255, 255, 255, 150);
+            
+            setSameuneImage.sprite=stageSamune[int.Parse(stageNumber.text)];
+            
+            
+            
         }
 
         public override void UpdatePosition(float position)
