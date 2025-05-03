@@ -15523,6 +15523,7 @@ Transform:
   - {fileID: 1198062055}
   - {fileID: 577053839}
   - {fileID: 707026916}
+  - {fileID: 1041653997}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16918,7 +16919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393482833}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21, y: 43.9, z: -55}
+  m_LocalPosition: {x: 523, y: 43.9, z: -55}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16967,8 +16968,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -4, y: 43.8, z: 267}
-  - {x: -4, y: -64.3, z: -260.4}
+  - {x: 3.3, y: 128.7, z: 267}
+  - {x: -3.76, y: -61.02, z: -96.7}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 12.963723
@@ -61066,7 +61067,7 @@ Transform:
   - {fileID: 478424576}
   - {fileID: 2094027908}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &990936096
 PrefabInstance:
@@ -66767,8 +66768,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041653996}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.5, z: 11.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -66776,8 +66777,8 @@ Transform:
   - {fileID: 1302150858}
   - {fileID: 35228104}
   - {fileID: 1371610842}
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 299119560}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1049422156
 GameObject:
@@ -78411,7 +78412,6 @@ GameObject:
   - component: {fileID: 1169669447}
   - component: {fileID: 1169669446}
   - component: {fileID: 1169669445}
-  - component: {fileID: 1169669444}
   - component: {fileID: 1169669450}
   - component: {fileID: 1169669449}
   - component: {fileID: 1169669469}
@@ -78428,6 +78428,7 @@ GameObject:
   - component: {fileID: 1169669453}
   - component: {fileID: 1169669452}
   - component: {fileID: 1169669451}
+  - component: {fileID: 1169669470}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -78814,8 +78815,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 227.47095
-    y: 176.69026
+    x: 367.47095
+    y: 256.69025
     width: 130
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -79140,9 +79141,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1169669469}
+  - {fileID: 1169669448}
   selectedCommands:
-  - {fileID: 1169669458}
+  - {fileID: 1169669447}
   variables:
   - {fileID: 1169669378}
   description: 
@@ -79259,21 +79260,6 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
---- !u!114 &1169669444
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169669268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 1169669448}
-  suppressBlockAutoSelect: 0
-  waitForFrames: 1
 --- !u!114 &1169669445
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -79372,8 +79358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 340.9265
-    y: 361.61044
+    x: 384.9265
+    y: 205.61044
     width: 136
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -79381,7 +79367,7 @@ MonoBehaviour:
   itemId: 180
   blockName: "\u653B\u6483\u30D5\u30A7\u30FC\u30BA13"
   description: 
-  eventHandler: {fileID: 1169669444}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1169669447}
   - {fileID: 1169669446}
@@ -79527,16 +79513,17 @@ MonoBehaviour:
   itemId: 282
   indentLevel: 0
   description: 
-  targetObject: {fileID: 0}
-  targetComponentAssemblyName: 
-  targetComponentFullname: 
-  targetComponentText: 
-  targetMethod: 
-  targetMethodText: 
+  targetObject: {fileID: 1858013300}
+  targetComponentAssemblyName: TimelineEffectController, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: TimelineEffectController
+  targetMethod: PlayEffectTimeline
+  targetMethodText: 'PlayEffectTimeline (): Void'
   methodParameters: []
   saveReturnValue: 0
   returnValueVariableKey: 
-  returnValueType: 
+  returnValueType: System.Void
   showInherited: 0
   callMode: 0
 --- !u!114 &1169669456
@@ -79616,7 +79603,7 @@ MonoBehaviour:
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
+      gameObjectValue: {fileID: 1916061946}
       materialValue: {fileID: 0}
       objectValue: {fileID: 0}
       spriteValue: {fileID: 0}
@@ -79712,7 +79699,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169669268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
@@ -79722,7 +79709,7 @@ MonoBehaviour:
   storyText: "\u30D0\u30FC\u30C1\u30E3\u30EB\u306B.....{x}"
   description: 
   character: {fileID: 0}
-  portrait: {fileID: 21300000, guid: cec5c4f0da3b09641b71c7d9a9fa211e, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -79739,7 +79726,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169669268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
@@ -79782,7 +79769,7 @@ MonoBehaviour:
   itemId: 87
   blockName: Energy
   description: 
-  eventHandler: {fileID: 0}
+  eventHandler: {fileID: 1169669470}
   commandList:
   - {fileID: 1169669464}
   - {fileID: 1169669463}
@@ -79798,6 +79785,21 @@ MonoBehaviour:
   - {fileID: 1169669452}
   - {fileID: 1169669451}
   suppressAllAutoSelections: 0
+--- !u!114 &1169669470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169669268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1169669469}
+  suppressBlockAutoSelect: 0
+  waitForFrames: 1
 --- !u!4 &1175824264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6090484673560805869, guid: 68478f8a3c497724aa746e8382e5666d, type: 3}
@@ -109630,7 +109632,7 @@ RectTransform:
   - {fileID: 1205998243}
   - {fileID: 1159427192}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

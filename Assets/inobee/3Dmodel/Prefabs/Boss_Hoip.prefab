@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: -3413940777881210584}
   - component: {fileID: 3979300153503780578}
   - component: {fileID: -2184785119432693249}
+  - component: {fileID: 2477707968188551820}
   m_Layer: 0
   m_Name: Boss_Hoip
   m_TagString: Bullet
@@ -94,10 +95,10 @@ BoxCollider:
   m_GameObject: {fileID: 6903577488597572439}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 72.021164, y: 1, z: 0}
-  m_Center: {x: 5.877456, y: -0.00000072882455, z: 0.5000015}
+  m_Size: {x: 1.6526349, y: 1, z: 1.164993}
+  m_Center: {x: 0.13868868, y: -0.00000071525574, z: -0.2291193}
 --- !u!114 &-3413940777881210584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +168,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2477707968188551820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903577488597572439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4325af90d104b65ba88e44dc0b3568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9137028395879430561
 GameObject:
   m_ObjectHideFlags: 0

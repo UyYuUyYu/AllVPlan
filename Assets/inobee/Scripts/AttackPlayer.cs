@@ -19,6 +19,7 @@ public class AttackPlayer : MonoBehaviour
     {
         if(other.gameObject.tag=="Player")
         {
+            Debug.Log("hit");
             other.gameObject.GetComponentInParent<PlayerControler>().Damege();
             Destroy(this.gameObject);
         }
