@@ -45,8 +45,8 @@ public class StageManager : MonoBehaviour
         gameUIManager=GameObject.Find("UIManager").GetComponent<GameUIManager>();
         if(sceneName=="SweetScene")
         {
-            limitTime=5.0f;
-            targetSubscribeMoney=10;
+            limitTime=120.0f;
+            targetSubscribeMoney=1000;
         }
         else if(sceneName=="Stage2")
         {
