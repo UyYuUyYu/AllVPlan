@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 34af46ea27b24d342a5571b3b9ee4862, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: a4a8c9608ebcc4614bb990745e34837e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37114608, g: 0.19654042, b: 0.19765946, a: 1}
+  m_IndirectSpecularColor: {r: 0.50693494, g: 0.51807535, b: 0.5203795, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 0f66480c5c8e14d91a635e67f7317d7c, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -3592,8 +3592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 67
-    y: 72.36066
+    x: 191.59018
+    y: -37.475433
     width: 113.11476
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4249,7 +4249,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &633770445
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4268,7 +4268,7 @@ MonoBehaviour:
   sceneNameOLD: 
 --- !u!114 &633770446
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4280,8 +4280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 259.86935
-    y: 76.329575
+    x: 361.5087
+    y: -35.14586
     width: 118.85247
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4295,7 +4295,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &633770447
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4311,7 +4311,7 @@ MonoBehaviour:
   keyCode: 116
 --- !u!114 &633770448
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4338,7 +4338,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &633770449
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4350,7 +4350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 30
   indentLevel: 0
-  storyText: "\"\u30B3\u30A8\u30EB\u3061\u3083\u3093\u3063\u3066\u52DD\u3061\u3092\u78BA\u4FE1\u3059\u308B\u3068\u3042\u3093\u306A\u8868\u60C5\u3059\u308B\u306E\u304B....\u914D\u4FE1\u3067\u3082\u898B\u305F\u3053\u3068\u306A\u304B\u3063\u305F\u305E\""
+  storyText: "\u30B3\u30A8\u30EB\u3061\u3083\u3093\u3063\u3066\u52DD\u3061\u3092\u78BA\u4FE1\u3059\u308B\u3068\u3042\u3093\u306A\u8868\u60C5\u3059\u308B\u306E\u304B....\u914D\u4FE1\u3067\u3082\u898B\u305F\u3053\u3068\u306A\u304B\u3063\u305F\u305E"
   description: 
   character: {fileID: 1025164339}
   portrait: {fileID: 0}
@@ -4365,7 +4365,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &633770450
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4395,7 +4395,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &633770451
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9871,7 +9871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1903390037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11212,6 +11212,10 @@ PrefabInstance:
     - target: {fileID: 2924799646134929793, guid: cfe8b364720bd044f8a9efe7c36ebea5, type: 3}
       propertyPath: m_Name
       value: Characters
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924799646134929793, guid: cfe8b364720bd044f8a9efe7c36ebea5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2924799646134929794, guid: cfe8b364720bd044f8a9efe7c36ebea5, type: 3}
       propertyPath: m_RootOrder
