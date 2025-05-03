@@ -8105,6 +8105,10 @@ MonoBehaviour:
   standCollider: {fileID: 0}
   sitCollider: {fileID: 0}
   jumpCollider: {fileID: 0}
+  isMoveDeray: 0
+  isRightDeray: 0
+  isLeftDeray: 0
+  isJumpDeray: 0
   flashDuration: 1
   flashInterval: 0.1
 --- !u!95 &1270569573
@@ -9441,6 +9445,10 @@ MonoBehaviour:
   standCollider: {fileID: 0}
   sitCollider: {fileID: 0}
   jumpCollider: {fileID: 0}
+  isMoveDeray: 0
+  isRightDeray: 0
+  isLeftDeray: 0
+  isJumpDeray: 0
   flashDuration: 1
   flashInterval: 0.1
 --- !u!136 &1467421972
@@ -10706,6 +10714,10 @@ PrefabInstance:
     - target: {fileID: 8718441600489770134, guid: df22f9313239c49da907d9c72e362cae, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718441600489770135, guid: df22f9313239c49da907d9c72e362cae, type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 8718441600489770137, guid: df22f9313239c49da907d9c72e362cae, type: 3}
       propertyPath: m_RootOrder
