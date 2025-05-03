@@ -33,9 +33,15 @@ namespace FancyScrollView.Example03
             message.text = itemData.Message;
             messageLarge.text = Index.ToString();
 
+            /*
             var selected = Context.SelectedIndex == Index;
             imageLarge.color = image.color = selected
                 ? new Color32(0, 255, 255, 100)
+                : new Color32(255, 255, 255, 77);
+            */
+            var selected = Context.SelectedIndex == Index;
+            imageLarge.color = image.color = selected
+                ? new Color32(0, 0, 0, 200)
                 : new Color32(255, 255, 255, 77);
         }
 
