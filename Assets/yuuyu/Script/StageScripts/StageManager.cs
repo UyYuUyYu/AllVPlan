@@ -43,10 +43,10 @@ public class StageManager : MonoBehaviour
         elapsedTime=0;
         string sceneName=SceneManager.GetActiveScene().name;
         gameUIManager=GameObject.Find("UIManager").GetComponent<GameUIManager>();
-        if(sceneName=="Stage1")
+        if(sceneName=="SweetScene")
         {
-            limitTime=120.0f;
-            targetSubscribeMoney=1000;
+            limitTime=5.0f;
+            targetSubscribeMoney=10;
         }
         else if(sceneName=="Stage2")
         {
@@ -54,6 +54,11 @@ public class StageManager : MonoBehaviour
             targetSubscribeMoney=2000;
         }
         else if(sceneName=="TestYuuyu2")
+        {
+            limitTime=5.0f;
+            targetSubscribeMoney=10;
+        }
+        else if(sceneName=="ComicScene")
         {
             limitTime=5.0f;
             targetSubscribeMoney=10;
