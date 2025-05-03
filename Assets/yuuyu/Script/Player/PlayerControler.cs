@@ -20,30 +20,37 @@ public class PlayerControler : MonoBehaviour
     //PayerComponent
     PlayerInput playerInput;
     Rigidbody prayerRb;
-    //InputAction jumpAction;
+    Animator koeruAnimator;
+    [SerializeField] GameObject standCollider,sitCollider,jumpCollider;
 
+
+    //InputAction jumpAction;
     GameUIManager gameUIManager;
 
     PlayerAnimation playerAnimation;
+    
 
 
     Vector3 direction;
     int nowJumpCount;
     float countTime;
-
-
-    private Animator koeruAnimator;
+    
     private bool isSitKoeru;
-    private Vector3 defofoColliderSize,defoColliderCenter;
+    
 
-    [SerializeField] GameObject standCollider,sitCollider,jumpCollider;
+   
 
+    public float flashDuration = 1.0f;       // チカチカする合計時間
+    public float flashInterval = 0.1f;       // チカチカの間隔
 
+    private Renderer[] renderers;
     // Start is called before the first frame update
     void Start()
     {
         isSitKoeru=false;
         koeruAnimator= gameObject.GetComponent<Animator>();
+            // 子オブジェクト含むすべてのRendererを取得
+        renderers = GetComponentsInChildren<Renderer>();
 
         gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
         prayerRb=this.GetComponent<Rigidbody>();
@@ -225,9 +232,10 @@ public class PlayerControler : MonoBehaviour
     }
 
     [ContextMenu("Damege")]
-     public void Damege()
+    public void Damege()
     {
         print("Damege");
+        StartCoroutine(FlashRoutine());
         playerHP--;
         gameUIManager.ChangeHPPanel(playerHP, maxPlayerHP);
     }
@@ -281,4 +289,28 @@ public class PlayerControler : MonoBehaviour
         playerHP-=_damege;
     }
     */
+     private IEnumerator FlashRoutine()
+    {
+        float elapsed = 0f;
+        bool isVisible = true;
+
+        while (elapsed < flashDuration)
+        {
+            isVisible = !isVisible;
+
+            foreach (var r in renderers)
+            {
+                r.enabled = isVisible;
+            }
+
+            yield return new WaitForSeconds(flashInterval);
+            elapsed += flashInterval;
+        }
+
+        // 最後は表示ONにしておく
+        foreach (var r in renderers)
+        {
+            r.enabled = true;
+        }
+    }
 }
