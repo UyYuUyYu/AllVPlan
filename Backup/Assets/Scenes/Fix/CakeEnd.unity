@@ -3592,8 +3592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 67
-    y: 72.36066
+    x: 191.59018
+    y: -37.475433
     width: 113.11476
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4249,7 +4249,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &633770445
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4268,7 +4268,7 @@ MonoBehaviour:
   sceneNameOLD: 
 --- !u!114 &633770446
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4280,8 +4280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 259.86935
-    y: 76.329575
+    x: 361.5087
+    y: -35.14586
     width: 118.85247
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4295,7 +4295,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &633770447
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4311,7 +4311,7 @@ MonoBehaviour:
   keyCode: 116
 --- !u!114 &633770448
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4338,7 +4338,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &633770449
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4350,7 +4350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 30
   indentLevel: 0
-  storyText: "\"\u30B3\u30A8\u30EB\u3061\u3083\u3093\u3063\u3066\u52DD\u3061\u3092\u78BA\u4FE1\u3059\u308B\u3068\u3042\u3093\u306A\u8868\u60C5\u3059\u308B\u306E\u304B....\u914D\u4FE1\u3067\u3082\u898B\u305F\u3053\u3068\u306A\u304B\u3063\u305F\u305E\""
+  storyText: "\u30B3\u30A8\u30EB\u3061\u3083\u3093\u3063\u3066\u52DD\u3061\u3092\u78BA\u4FE1\u3059\u308B\u3068\u3042\u3093\u306A\u8868\u60C5\u3059\u308B\u306E\u304B....\u914D\u4FE1\u3067\u3082\u898B\u305F\u3053\u3068\u306A\u304B\u3063\u305F\u305E"
   description: 
   character: {fileID: 1025164339}
   portrait: {fileID: 0}
@@ -4365,7 +4365,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &633770450
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4395,7 +4395,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &633770451
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

@@ -876,7 +876,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 66992414}
   selectedCommands:
-  - {fileID: 66992460}
+  - {fileID: 66992450}
   variables: []
   description: 
   stepPause: 0
@@ -12873,6 +12873,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542542430505604448, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2542542431137914713, guid: eac76ba9f0671c84e9ffd03f7b4e39b9, type: 3}
       propertyPath: m_SizeDelta.x
       value: -88.18884

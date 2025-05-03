@@ -46,6 +46,10 @@ namespace UnityToolbarExtender.Examples
 			{
 				SceneHelper.StartScene("Talk_test");
 			}
+			if (GUILayout.Button(new GUIContent("SELECT", "ステージセレクトシーン"), ToolbarStyles.commandButtonStyle))
+			{
+				SceneHelper.StartScene("SelectStageScene");
+			}
 			if (GUILayout.Button(new GUIContent("Game", "ゲーム画面"), ToolbarStyles.commandButtonStyle))
 			{
 				SceneHelper.StartScene("PlayGame");
@@ -59,9 +63,13 @@ namespace UnityToolbarExtender.Examples
 			// {
 			// 	SceneHelper.StartScene("Tutorial");
 			// }
-			if (GUILayout.Button(new GUIContent("End", "戦闘後会話シーン"), ToolbarStyles.commandButtonStyle))
+			if (GUILayout.Button(new GUIContent("CEnd", "戦闘後会話シーン"), ToolbarStyles.commandButtonStyle))
 			{
-				SceneHelper.StartScene("talk2");
+				SceneHelper.StartScene("CakeEnd");
+			}
+			if (GUILayout.Button(new GUIContent("BEnd", "戦闘後会話シーン"), ToolbarStyles.commandButtonStyle))
+			{
+				SceneHelper.StartScene("BookEnd");
 			}
 			if (GUILayout.Button(new GUIContent("load", "loading"), ToolbarStyles.commandButtonStyle))
 			{

@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2984557729730029585}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6900126192354582045, guid: 8ffe5a7ea3f9d410c93e80b283ae99fd, type: 3}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SelectStageScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1995436162389592627
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +146,7 @@ GameObject:
   - component: {fileID: 982765028280425155}
   - component: {fileID: 8082728494229653099}
   - component: {fileID: 6671286225513046250}
-  - component: {fileID: 5646340156282264586}
+  - component: {fileID: 2780090006985672657}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -274,23 +286,23 @@ MonoBehaviour:
   typewriterStartsAutomatically: 1
   animationLoop: 0
   timeScale: 0
-  _text: 
+  _text: "\u753B\u9762\u304B\u3089\u51FA\u3066\u304D\u305F\u63A8\u3057\u306EVTuver\u3001\n\u300C\u5883\u76EE\u30B3\u30A8\u30EB\u300D\u3068\u4E00\u7DD2\u306B\n\u300C\u5168\u4E16\u754CVtuber\u5316\u8A08\u753B\u300D\u3092\u6B62\u3081\u308B\u305F\u3081\u306B\u3001\u30C9\u30AD\u30C9\u30AD\u306E\u30A2\u30AF\u30B7\u30E7\u30F3\u304C\u59CB\u307E\u308B\uFF01\n"
   useDynamicScaling: 1
   referenceFontSize: 10
   isResettingTimeOnNewText: 1
   useDefaultDatabases: 1
-  databaseBehaviors: {fileID: 0}
-  databaseAppearances: {fileID: 0}
+  databaseBehaviors: {fileID: 11400000, guid: d28971a482e6743b09e914831a890e37, type: 2}
+  databaseAppearances: {fileID: 11400000, guid: ab99d21090d574565927ce9a5179dd8e, type: 2}
   useDefaultStyleSheet: 1
   styleSheet: {fileID: 0}
-  databaseActions: {fileID: 0}
+  databaseActions: {fileID: 11400000, guid: 595b4a2ccb479407c87e626d94e7702b, type: 2}
   defaultAppearancesTags:
   - size
   defaultDisappearancesTags:
   - fade
   defaultBehaviorsTags: []
   defaultTagsMode: 0
---- !u!114 &5646340156282264586
+--- !u!114 &2780090006985672657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,7 +311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1995436162389592627}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb821b3a89e0240aa91c53955ccade89, type: 3}
+  m_Script: {fileID: 11500000, guid: 57a6945b90dcd0c4b81619c0d8b5c283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   useTypeWriter: 1
@@ -326,9 +338,15 @@ MonoBehaviour:
   onMessage:
     m_PersistentCalls:
       m_Calls: []
-  waitForNormalWord: 0.3
-  waitForWordWithPunctuation: 0.5
-  disappearanceDelay: 0.5
+  waitForNormalChars: 0.03
+  waitLong: 0.6
+  waitMiddle: 0.2
+  avoidMultiplePunctuationWait: 0
+  waitForNewLines: 1
+  waitForLastCharacter: 1
+  useTypewriterWaitForDisappearances: 1
+  disappearanceWaitTime: 0.015
+  disappearanceSpeedMultiplier: 1
 --- !u!1 &2585630014747063599
 GameObject:
   m_ObjectHideFlags: 0
