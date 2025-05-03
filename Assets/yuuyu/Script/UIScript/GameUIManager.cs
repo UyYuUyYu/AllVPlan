@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using DG.Tweening;
 
 public class GameUIManager : MonoBehaviour
 {
     [SerializeField] GameObject[] KoeruPowerPanel;
     [SerializeField] GameObject[] PlayerHPPanel;
     [SerializeField] GameObject specialPanel;
+    [SerializeField] GameObject gameOverPanel;
     [SerializeField] float seconds = 1f;
 
     [SerializeField] GameObject popupPrefab;
@@ -86,5 +89,9 @@ public class GameUIManager : MonoBehaviour
 
         // パネルを非アクティブに
         panel.SetActive(false);
+    }
+    public void GameOverPanel()
+    {
+        gameOverPanel.SetActive(true);
     }
 }

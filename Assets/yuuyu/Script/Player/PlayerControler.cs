@@ -43,6 +43,7 @@ public class PlayerControler : MonoBehaviour
     public float flashInterval = 0.1f;       // チカチカの間隔
 
     private Renderer[] renderers;
+    [SerializeField] StageManager stageManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +53,7 @@ public class PlayerControler : MonoBehaviour
         renderers = GetComponentsInChildren<Renderer>();
 
         gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
+        stageManager= GameObject.Find("StageManager").GetComponent<StageManager>();
         prayerRb=this.GetComponent<Rigidbody>();
         nowJumpCount=jumpCount;
         direction=new Vector3(0,0,0);
@@ -81,174 +83,175 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #region コントローラー
-        transform.position+=direction*moveSpeed*Time.deltaTime;
-        /*
-        if(jumpAction.ReadValue<float>()>0)
+        if(GameManager.isStartGame)
         {
-            Jump();
-        }
-        */
-        #endregion
-
-        #region キー入力
-        if(koeruAnimator.GetCurrentAnimatorStateInfo(0).IsName("Koeru_Stand"))
-        {
-            isSitKoeru=false;
-        }
-        if(!isSitKoeru)
-        {
-            
-            if(Input.GetKeyDown(KeyCode.D))
+            #region コントローラー
+            transform.position+=direction*moveSpeed*Time.deltaTime;
+            /*
+            if(jumpAction.ReadValue<float>()>0)
             {
-                StartCoroutine(Deray("D"));
+                Jump();
             }
-            
-            if(Input.GetKey(KeyCode.D))
-            {
-                /*
-                if(keyD<1.0f)
-                {
-                    keyD+=Time.deltaTime;
-                }
-                else
-                {
-                    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                    koeruAnimator.SetBool("isRun", true);
+            */
+            #endregion
 
-                    transform.position+=new Vector3(moveSpeed*Time.deltaTime,0,0);
+            #region キー入力
+            if(koeruAnimator.GetCurrentAnimatorStateInfo(0).IsName("Koeru_Stand"))
+            {
+                isSitKoeru=false;
+            }
+            if(!isSitKoeru)
+            {
+                
+                if(Input.GetKeyDown(KeyCode.D))
+                {
+                    StartCoroutine(Deray("D"));
+                }
+                
+                if(Input.GetKey(KeyCode.D))
+                {
+                    /*
+                    if(keyD<1.0f)
+                    {
+                        keyD+=Time.deltaTime;
+                    }
+                    else
+                    {
+                        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                        koeruAnimator.SetBool("isRun", true);
+
+                        transform.position+=new Vector3(moveSpeed*Time.deltaTime,0,0);
+                    }
+                    */
+                    
+                
+                
+                }
+                if(Input.GetKeyUp(KeyCode.D))
+                {
+                    //DerayMove("D");
+                    keyD=0;
+                    StartCoroutine(DerayUp("D"));
+                    /*
+                    koeruAnimator.SetBool("isRun", false);
+
+                    direction=Vector3.zero;
+                    */
+                    
+                }
+                if(Input.GetKeyDown(KeyCode.A))
+                {
+                    StartCoroutine(Deray("A"));
+                }
+                if(Input.GetKey(KeyCode.A))
+                {
+                    /*
+                    if(isMoveDeray)
+                    {
+                        transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                        koeruAnimator.SetBool("isRun", true);
+
+                        transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
+                    }
+                    */
+                }
+                if(Input.GetKeyUp(KeyCode.A))
+                {
+                    //DerayMove("A");
+                    keyA=0;
+                    StartCoroutine(DerayUp("A"));
+                    /*
+                    koeruAnimator.SetBool("isRun", false);
+
+                    direction=Vector3.zero;
+                    */
+                }
+                /*
+                if (Input.GetKey(KeyCode.W))
+                {
+
+                    koeruAnimator.SetBool("isRun", true);
+                    transform.position += new Vector3(0, 0, moveSpeed * Time.deltaTime);
+                }
+                if(Input.GetKeyUp(KeyCode.W))
+                {
+                    koeruAnimator.SetBool("isRun", false);
+
+                    direction=Vector3.zero;
                 }
                 */
-                   
-               
-               
             }
-            if(Input.GetKeyUp(KeyCode.D))
+            //playerの動きderay描けるよう
+        
+            if(isRightDeray)
             {
-                //DerayMove("D");
-                keyD=0;
-                StartCoroutine(DerayUp("D"));
-                /*
-                koeruAnimator.SetBool("isRun", false);
+                print("横");
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                koeruAnimator.SetBool("isRun", true);
 
+                transform.position+=new Vector3(moveSpeed*Time.deltaTime,0,0);
+            }
+            if(isLeftDeray)
+            {
+
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                koeruAnimator.SetBool("isRun", true);
+
+                transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
+            }
+                
+            
+            
+            if (Input.GetKey(KeyCode.S))
+            {
+                StartCoroutine(Deray("S"));
+                isSitKoeru=true;
+                koeruAnimator.SetBool("isSit", true);
+                standCollider.SetActive(false);
+                sitCollider.SetActive(true);
+                //transform.position -= new Vector3(0, 0, moveSpeed * Time.deltaTime);
+            }
+            if(Input.GetKeyUp(KeyCode.S))
+            {
+                StartCoroutine(Deray("S"));
+                koeruAnimator.SetBool("isSit", false);
+                sitCollider.SetActive(false);
+                standCollider.SetActive(true);
                 direction=Vector3.zero;
+            }
+            if ((Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.W))&&(nowJumpCount>0))
+            {
+                StartCoroutine(DerayJump("Jump"));
+                
+                /*
+                koeruAnimator.SetBool("isJump", true);
+                prayerRb.velocity = Vector3.up * jumpPower;
+                nowJumpCount--;
+                standCollider.SetActive(false);
+                jumpCollider.SetActive(true);
                 */
                 
+
+                //prayerRb.AddForce(new Vector3(0,jumpPower,0),ForceMode.Impulse);
             }
-            if(Input.GetKeyDown(KeyCode.A))
-            {
-                StartCoroutine(Deray("A"));
-            }
-            if(Input.GetKey(KeyCode.A))
-            {
-                /*
-                if(isMoveDeray)
-                {
-                    transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                    koeruAnimator.SetBool("isRun", true);
+            #endregion
 
-                    transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
-                }
-                */
-            }
-            if(Input.GetKeyUp(KeyCode.A))
-            {
-                //DerayMove("A");
-                keyA=0;
-                StartCoroutine(DerayUp("A"));
-                /*
-                koeruAnimator.SetBool("isRun", false);
-
-                direction=Vector3.zero;
-                */
-            }
-            /*
-            if (Input.GetKey(KeyCode.W))
-            {
-
-                koeruAnimator.SetBool("isRun", true);
-                transform.position += new Vector3(0, 0, moveSpeed * Time.deltaTime);
-            }
-            if(Input.GetKeyUp(KeyCode.W))
-            {
-                koeruAnimator.SetBool("isRun", false);
-
-                direction=Vector3.zero;
-            }
-            */
-        }
-        //playerの動きderay描けるよう
-      
-        if(isRightDeray)
-        {
-            print("横");
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            koeruAnimator.SetBool("isRun", true);
-
-            transform.position+=new Vector3(moveSpeed*Time.deltaTime,0,0);
-        }
-        if(isLeftDeray)
-        {
-
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            koeruAnimator.SetBool("isRun", true);
-
-            transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
-        }
-            
         
-        
-        if (Input.GetKey(KeyCode.S))
-        {
-            StartCoroutine(Deray("S"));
-            isSitKoeru=true;
-            koeruAnimator.SetBool("isSit", true);
-            standCollider.SetActive(false);
-            sitCollider.SetActive(true);
-            //transform.position -= new Vector3(0, 0, moveSpeed * Time.deltaTime);
-        }
-        if(Input.GetKeyUp(KeyCode.S))
-        {
-            StartCoroutine(Deray("S"));
-            koeruAnimator.SetBool("isSit", false);
-            sitCollider.SetActive(false);
-            standCollider.SetActive(true);
-            direction=Vector3.zero;
-        }
-        if ((Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.W))&&(nowJumpCount>0))
-        {
-            StartCoroutine(DerayJump("Jump"));
-            
             /*
-            koeruAnimator.SetBool("isJump", true);
-            prayerRb.velocity = Vector3.up * jumpPower;
-            nowJumpCount--;
-            standCollider.SetActive(false);
-            jumpCollider.SetActive(true);
+            #region コエルパワー
+            countTime += Time.deltaTime;
+            if(countTime>getKoeruPowerTime)
+            {
+                countTime = 0;
+                if (now_KoeruPower < max_KoeruPower)
+                    AddKoeruPower();
+            }
+            #endregion
             */
-            
-
-            //prayerRb.AddForce(new Vector3(0,jumpPower,0),ForceMode.Impulse);
-        }
-        #endregion
-
-        if(playerHP==0)
-        {
 
         }
-        /*
-        #region コエルパワー
-        countTime += Time.deltaTime;
-        if(countTime>getKoeruPowerTime)
-        {
-            countTime = 0;
-            if (now_KoeruPower < max_KoeruPower)
-                AddKoeruPower();
-        }
-        #endregion
-        */
-
     }
+        
     private IEnumerator Deray(string _key)
     {
    
@@ -388,6 +391,10 @@ public class PlayerControler : MonoBehaviour
         StartCoroutine(FlashRoutine());
         playerHP--;
         gameUIManager.ChangeHPPanel(playerHP, maxPlayerHP);
+        if(playerHP==0)
+        {
+            GameOver();
+        }
     }
 
     [ContextMenu("ResetHP")]
@@ -399,7 +406,9 @@ public class PlayerControler : MonoBehaviour
 
     void GameOver()
     {
+        print("GameOver");
         GameManager.isStartGame=false;
+        stageManager.TriggerGameOver();
 
     }
 
@@ -419,6 +428,9 @@ public class PlayerControler : MonoBehaviour
             case "Bullet":
                 
                 //Damege();
+                break;
+            case "LimitWall":
+                GameOver();
                 break;
             default:
                 break;
