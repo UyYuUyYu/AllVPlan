@@ -21,7 +21,7 @@ namespace FancyScrollView.Example03
                 .ToArray();
             */
             var items = Enumerable.Range(0,5)
-                .Select(i => new ItemData($"STAGE {i}"))
+                .Select(i => new ItemData($"STAGE {i+1}"))
                 .ToArray();
 
             scrollView.UpdateData(items);

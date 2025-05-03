@@ -286,19 +286,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 129616880}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 930817475}
-        m_TargetAssemblyTypeName: SelectStageUIScript, Assembly-CSharp
-        m_MethodName: BuckTitle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &129616880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,7 +962,6 @@ GameObject:
   - component: {fileID: 930817474}
   - component: {fileID: 930817473}
   - component: {fileID: 930817472}
-  - component: {fileID: 930817475}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -1046,19 +1033,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 930817473}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 930817475}
-        m_TargetAssemblyTypeName: SelectStageUIScript, Assembly-CSharp
-        m_MethodName: UIPanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &930817473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,19 +1072,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930817470}
   m_CullTransparentMesh: 1
---- !u!114 &930817475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930817470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25070d5a49cd744d6bcb10d15f66b324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UICanavas: {fileID: 1474178384}
 --- !u!1 &933795059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,19 +1433,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1454662856}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 930817475}
-        m_TargetAssemblyTypeName: SelectStageUIScript, Assembly-CSharp
-        m_MethodName: UIPanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1454662856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,14 +1663,13 @@ GameObject:
   - component: {fileID: 1474178385}
   - component: {fileID: 1474178387}
   - component: {fileID: 1474178386}
-  - component: {fileID: 1474178388}
   m_Layer: 5
-  m_Name: PopUIPanel
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1474178385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1781,19 +1730,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474178384}
   m_CullTransparentMesh: 1
---- !u!114 &1474178388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474178384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25070d5a49cd744d6bcb10d15f66b324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UICanavas: {fileID: 0}
 --- !u!1 &1506148292
 GameObject:
   m_ObjectHideFlags: 0

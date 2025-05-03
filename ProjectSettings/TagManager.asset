@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Screen
   - energy
+  - Wall
+  - LimitWall
   layers:
   - Default
   - TransparentFX

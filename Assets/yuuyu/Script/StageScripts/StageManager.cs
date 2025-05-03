@@ -22,12 +22,23 @@ public class StageManager : MonoBehaviour
     [SerializeField] Camera targetCamera;           // 動かす対象のカメラ
     [SerializeField] float scrollSpeed = 1.0f;      // スクロール速度（ユニット/秒）
     Vector3 scrollDirection = Vector3.right; // スクロール方向
+
+    public Transform cameraTransform;      // 揺らすカメラ
+    private float shakeDuration = 0.8f;     // 揺れる時間
+    private float shakeMagnitude = 0.5f;    // 揺れの強さ
+
+    private Vector3 originalPos;
+    private float currentShakeTime = 0f;
+    private bool isShaking = false;
+
     
     void Awake()
     {
         Cursor.visible = false; // カーソルを非表示
         Cursor.lockState = CursorLockMode.Locked; // カーソルを画面中央に固定
         GameManager.isStartGame=true;
+        cameraTransform=targetCamera.gameObject.transform;
+        originalPos = cameraTransform.localPosition;
         subscribeMoney=0;
         elapsedTime=0;
         string sceneName=SceneManager.GetActiveScene().name;
@@ -77,6 +88,23 @@ public class StageManager : MonoBehaviour
             DefaultIncreesSubscribe();
         }
 
+        if (isShaking)
+        {
+            currentShakeTime -= Time.unscaledDeltaTime;
+
+            if (currentShakeTime > 0)
+            {
+                Vector3 randomOffset = Random.insideUnitSphere * shakeMagnitude;
+                cameraTransform.localPosition = originalPos + randomOffset;
+            }
+            else
+            {
+                isShaking = false;
+                cameraTransform.localPosition = originalPos;
+                gameUIManager.GameOverPanel();
+            }
+        }
+
     }
 
     void DefaultIncreesSubscribe()
@@ -87,14 +115,28 @@ public class StageManager : MonoBehaviour
 
     public void AddSubscibe(string _userName, int _money)
     {
-        subscribeMoney+=_money;
-        subscribeMoneyText.text=subscribeMoney.ToString("f0");
-        gameUIManager.Subscribe(_userName,_money);
+        if(GameManager.isStartGame)
+        {
+            subscribeMoney+=_money;
+            subscribeMoneyText.text=subscribeMoney.ToString("f0");
+            gameUIManager.Subscribe(_userName,_money);
+        }
+       
     }
 
     public void StageClear()
     {
         GameManager.isStartGame=false;
         print("Clear");
+        
+    }
+    public void TriggerGameOver()
+    {
+        isShaking = true;
+        currentShakeTime = shakeDuration;
+
+        // スローモーションもかける場合
+        Time.timeScale = 0.2f;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
     }
 }
