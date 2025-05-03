@@ -10,6 +10,9 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] GameObject specialPanel;
     [SerializeField] float seconds = 1f;
 
+    [SerializeField] GameObject popupPrefab;
+    [SerializeField] Transform popupParent; 
+
     void Start()
     {
     }
@@ -38,6 +41,21 @@ public class GameUIManager : MonoBehaviour
             else
                 PlayerHPPanel[i-1].GetComponent<Image>().enabled = false;
         }
+    }
+    //supsucibePopUpを表示する関数
+    public void Subscribe(string _userName,int _money)
+    {
+        GameObject popup = Instantiate(popupPrefab, popupParent);
+        popup.transform.localPosition = new Vector3(0, 0, 0); // 表示位置調整
+
+        SubscribePopup popupScript = popup.GetComponent<SubscribePopup>();
+        popupScript.Initialize($"{_userName}さん)",_money);
+    }
+
+    [ContextMenu("popup")]
+    public void TestPopUp()
+    {
+        Subscribe("yuuyu",100);
     }
 
     // ──────────────────────────────────────────────────────────

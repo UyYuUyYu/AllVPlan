@@ -127,6 +127,11 @@ MonoBehaviour:
   now_KoeruPower: 0
   max_KoeruPower: 4
   getKoeruPowerTime: 15
+  standCollider: {fileID: 0}
+  sitCollider: {fileID: 0}
+  jumpCollider: {fileID: 0}
+  flashDuration: 1
+  flashInterval: 0.1
 --- !u!54 &8718441600489770135
 Rigidbody:
   m_ObjectHideFlags: 0
