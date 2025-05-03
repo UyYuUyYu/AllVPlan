@@ -19,7 +19,7 @@ public class CommentManager : MonoBehaviour
     public float baseLineHeight = 50f;
     public float shiftDuration = 0.3f;
     public float removeThreshold = 50f;
-    public float spawnInterval = 2f;
+    public float spawnInterval = 5f;
 
     [Header("▼ 文字数に応じた行間設定")]
     public int characterThreshold = 20;
@@ -27,7 +27,7 @@ public class CommentManager : MonoBehaviour
     public float lineHeightLong = 80f;
 
     public TextAttackSpawner attackSpawner; // Inspectorでアタッチ
-public float attackTextSpeed = 10.0f;    // 速度は固定10
+private float attackTextSpeed = 10.0f;    // 速度は固定10
 
 
     // 現在表示中のコメントオブジェクト（古いものから順に先頭に格納）
@@ -150,6 +150,7 @@ public float attackTextSpeed = 10.0f;    // 速度は固定10
         RemoveOutOfRangeComments();
     int randomPos = Random.Range(0, attackSpawner.GeneratePositionCount);
     Debug.Log("コメント発射");
+    attackTextSpeed = Random.Range(2.0f, 10.0f);
     attackSpawner.GenerateAttackText(data.message, attackTextSpeed, randomPos);
 
 
