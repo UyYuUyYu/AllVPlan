@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37114608, g: 0.19654042, b: 0.19765946, a: 1}
+  m_IndirectSpecularColor: {r: 0.37114596, g: 0.19654033, b: 0.19765942, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3181,6 +3181,8 @@ MonoBehaviour:
   ratioInreeesSubscription: 2
   targetSubscribeMoneyText: {fileID: 164728115}
   subscribeMoneyText: {fileID: 419306558}
+  targetCamera: {fileID: 0}
+  scrollSpeed: 1
 --- !u!1001 &489433797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5760,6 +5762,8 @@ MonoBehaviour:
   - {fileID: 0}
   specialPanel: {fileID: 0}
   seconds: 1
+  popupPrefab: {fileID: 0}
+  popupParent: {fileID: 0}
 --- !u!4 &873324031
 Transform:
   m_ObjectHideFlags: 0
