@@ -26,6 +26,10 @@ public class CommentManager : MonoBehaviour
     public float lineHeightShort = 50f;
     public float lineHeightLong = 80f;
 
+    public TextAttackSpawner attackSpawner; // Inspectorでアタッチ
+public float attackTextSpeed = 10.0f;    // 速度は固定10
+
+
     // 現在表示中のコメントオブジェクト（古いものから順に先頭に格納）
     private List<GameObject> commentObjects = new List<GameObject>();
 
@@ -144,6 +148,11 @@ public class CommentManager : MonoBehaviour
 
         // 6) 画面外に押し上げられたコメントを削除
         RemoveOutOfRangeComments();
+    int randomPos = Random.Range(0, attackSpawner.GeneratePositionCount);
+    Debug.Log("コメント発射");
+    attackSpawner.GenerateAttackText(data.message, attackTextSpeed, randomPos);
+
+
     }
 
     /// <summary>
