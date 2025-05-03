@@ -42,7 +42,7 @@ public class PlayerControler : MonoBehaviour
     public float flashDuration = 1.0f;       // チカチカする合計時間
     public float flashInterval = 0.1f;       // チカチカの間隔
 
-    private Renderer[] renderers;
+    private Renderer renderers;
     [SerializeField] StageManager stageManager;
     // Start is called before the first frame update
     void Start()
@@ -50,7 +50,7 @@ public class PlayerControler : MonoBehaviour
         isSitKoeru=false;
         koeruAnimator= gameObject.GetComponent<Animator>();
             // 子オブジェクト含むすべてのRendererを取得
-        renderers = GetComponentsInChildren<Renderer>();
+        renderers = GetComponent<Renderer>();
 
         gameUIManager = GameObject.Find("UIManager").GetComponent<GameUIManager>();
         stageManager= GameObject.Find("StageManager").GetComponent<StageManager>();
@@ -466,19 +466,19 @@ public class PlayerControler : MonoBehaviour
         {
             isVisible = !isVisible;
 
-            foreach (var r in renderers)
-            {
-                r.enabled = isVisible;
-            }
+           
+            renderers.enabled = isVisible;
+            
 
             yield return new WaitForSeconds(flashInterval);
             elapsed += flashInterval;
         }
 
         // 最後は表示ONにしておく
-        foreach (var r in renderers)
-        {
-            r.enabled = true;
-        }
+        
+        
+            renderers.enabled = true;
+            
+        
     }
 }
