@@ -5,22 +5,18 @@ using System.Collections.Generic;
 
 public class SceneTransition : MonoBehaviour
 {
-    [SerializeField] string nextSceneName;
     [SerializeField] TransitionSample transitionSample;
-    void Update()
+
+    public void LoadScene(string SceneName)
     {
-        // キーが押された、マウスの左クリック、またはコントローラーの「Submit」ボタンが押されたときにシーンを切り替える
-        if (Input.anyKeyDown || Input.GetMouseButtonDown(0) || Input.GetButtonDown("Submit"))
-        {
-            transitionSample.SetProgress(18);
-            StartCoroutine("ChangeSecne");
-            
-        }
+          SceneManager.LoadScene(SceneName);
+
 
     }
-    IEnumerator ChangeSecne()
+
+    IEnumerator ChangeSecne(string SceneName)
     {
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(nextSceneName);
+        yield return new WaitForSeconds(1);
+
     }
 }

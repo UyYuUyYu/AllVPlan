@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Fix/PlayGame.unity
     guid: 5f70f44ee0e7b054e92cf54782a1eb47
   - enabled: 1
+    path: Assets/yuuyu/Scene/SelectStageScene.unity
+    guid: 967028d206f7440fdb949a7ad30ee176
+  - enabled: 1
     path: Assets/Scenes/Fix/Loading.unity
     guid: fc2dd92eeeb2e664f9483921290c4c63
   m_configObjects:

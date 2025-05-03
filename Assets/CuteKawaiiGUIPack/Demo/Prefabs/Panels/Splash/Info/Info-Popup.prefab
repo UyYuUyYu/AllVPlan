@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2984557729730029585}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6900126192354582045, guid: 8ffe5a7ea3f9d410c93e80b283ae99fd, type: 3}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SelectStageScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1995436162389592627
 GameObject:
   m_ObjectHideFlags: 0
