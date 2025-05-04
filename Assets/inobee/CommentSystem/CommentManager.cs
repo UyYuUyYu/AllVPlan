@@ -27,7 +27,14 @@ public class CommentManager : MonoBehaviour
     public float lineHeightLong = 80f;
 
     public TextAttackSpawner attackSpawner; // Inspectorでアタッチ
-private float attackTextSpeed = 10.0f;    // 速度は固定10
+    private float attackTextSpeed = 10.0f;    // 速度は固定10
+[Header("▼ Moneyコメントデータ")]
+public CommentListMoneySO1 commentListMoneySO1;
+
+private int moneyIndex = 0;
+public GameUIManager gameUIManager; // Inspectorでアタッチ
+
+
 
 
     // 現在表示中のコメントオブジェクト（古いものから順に先頭に格納）
@@ -48,24 +55,56 @@ private float attackTextSpeed = 10.0f;    // 速度は固定10
     /// <summary>
     /// 一定間隔で normalList からコメントを生成（Damage/Attack中は一時停止）
     /// </summary>
-    IEnumerator NormalCommentFlow()
+   IEnumerator NormalCommentFlow()
+{
+    while (true)
     {
-        while (true)
+        if (!isDamageMode && !isAttackMode)
         {
+            yield return new WaitForSeconds(spawnInterval);
+
             if (!isDamageMode && !isAttackMode)
             {
-                yield return new WaitForSeconds(spawnInterval);
-                if (!isDamageMode && !isAttackMode)
+                // スパチャ出す確率（25%）
+                bool isMoneyComment = Random.value < 0.50f;
+
+                if (isMoneyComment && commentListMoneySO1 != null && commentListMoneySO1.MoneyList.Count > 0)
+                {
+                    SpawnMoneyComment();
+                }
+                else
                 {
                     SpawnNextNormalComment();
                 }
             }
-            else
-            {
-                yield return null;
-            }
+        }
+        else
+        {
+            yield return null;
         }
     }
+}
+
+private void SpawnMoneyComment()
+{
+    var list = commentListMoneySO1.MoneyList;
+    if (list == null || list.Count == 0) return;
+
+    var data = list[moneyIndex];
+
+    // Subscribe UI 呼び出し
+    if (gameUIManager != null)
+    {
+        Debug.Log("ここ来る？");
+        gameUIManager.Subscribe(data.name, data.amount);
+    }
+
+    moneyIndex++;
+    if (moneyIndex >= list.Count) moneyIndex = 0;
+}
+
+
+
 
     /// <summary>
     /// normalList から順番にコメントを取得し生成
