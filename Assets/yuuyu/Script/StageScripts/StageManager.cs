@@ -49,7 +49,7 @@ public class StageManager : MonoBehaviour
         if(sceneName=="SweetScene")
         {
             limitTime=120.0f;
-            targetSubscribeMoney=50;
+            targetSubscribeMoney=1250;
         }
         else if(sceneName=="Stage2")
         {
@@ -136,7 +136,7 @@ public class StageManager : MonoBehaviour
     public void StageClear()
     {
         GameManager.isStartGame=false;
-    flowchart.ExecuteBlock("Energy"); // "energy" という名前のブロックを実行
+    //flowchart.ExecuteBlock("Energy"); // "energy" という名前のブロックを実行
         print("Clear");
 
     }
