@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/yuuyu/Scene/SelectStageScene.unity
     guid: 967028d206f7440fdb949a7ad30ee176
   - enabled: 1
+    path: Assets/rai/Scenes/SweetScene.unity
+    guid: ffbc6c51844484777ad3d88005f9e72d
+  - enabled: 1
     path: Assets/Scenes/Fix/Loading.unity
     guid: fc2dd92eeeb2e664f9483921290c4c63
   m_configObjects:

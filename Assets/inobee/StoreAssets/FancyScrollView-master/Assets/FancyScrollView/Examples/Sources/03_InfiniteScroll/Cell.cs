@@ -22,6 +22,7 @@ namespace FancyScrollView.Example03
         [SerializeField] Text stageNumber;
         [SerializeField] Sprite[] stageSamune;
         [SerializeField] Image setSameuneImage;
+        private KeteiButton keteiButton;
 
         static class AnimatorHash
         {
@@ -31,7 +32,7 @@ namespace FancyScrollView.Example03
         void Start()
         {
             button.onClick.AddListener(() => Context.OnCellClicked?.Invoke(Index));
-            
+            keteiButton=GameObject.Find("Kettei").GetComponent<KeteiButton>();
             
         }
 
@@ -54,6 +55,11 @@ namespace FancyScrollView.Example03
                 : new Color32(255, 255, 255, 150);
             
             setSameuneImage.sprite=stageSamune[int.Parse(stageNumber.text)];
+            if(selected)
+            {
+
+                keteiButton.GetNumber(int.Parse(stageNumber.text));
+            }
             
             
             
@@ -62,6 +68,7 @@ namespace FancyScrollView.Example03
         public override void UpdatePosition(float position)
         {
             currentPosition = position;
+            
 
             if (animator.isActiveAndEnabled)
             {
