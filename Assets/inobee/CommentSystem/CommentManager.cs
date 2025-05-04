@@ -66,7 +66,7 @@ public GameUIManager gameUIManager; // Inspectorでアタッチ
             if (!isDamageMode && !isAttackMode)
             {
                 // スパチャ出す確率（25%）
-                bool isMoneyComment = Random.value < 0.50f;
+                bool isMoneyComment = Random.value < 0.37f;
 
                 if (isMoneyComment && commentListMoneySO1 != null && commentListMoneySO1.MoneyList.Count > 0)
                 {

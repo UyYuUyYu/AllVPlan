@@ -8,6 +8,8 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] TransitionSample transitionSample;
     [SerializeField] private string sceneToLoad; // ロードするシーン名を指定
 
+    public StageManager stageManager; // StageManagerのインスタンスを参照
+
     public void LoadScene(string SceneName)
     {
         SceneManager.LoadScene(SceneName);
@@ -22,7 +24,10 @@ public class SceneTransition : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return)) // エンターキーを検出
         {
+            stageManager.StartGamedev();
             LoadScene(sceneToLoad); // 指定されたシーンをロード
+
+
         }
     }
 }
