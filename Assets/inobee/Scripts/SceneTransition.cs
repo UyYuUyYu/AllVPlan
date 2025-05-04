@@ -8,6 +8,8 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] TransitionSample transitionSample;
     [SerializeField] private string sceneToLoad; // ロードするシーン名を指定
 
+    public GameManager  gameManager; // GameManagerのインスタンスを参照
+
     public StageManager stageManager; // StageManagerのインスタンスを参照
 
     public void LoadScene(string SceneName)

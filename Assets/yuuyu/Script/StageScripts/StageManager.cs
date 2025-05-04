@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Fungus;
+
 
 
 
@@ -26,6 +28,7 @@ public class StageManager : MonoBehaviour
     public Transform cameraTransform;      // 揺らすカメラ
     private float shakeDuration = 0.8f;     // 揺れる時間
     private float shakeMagnitude = 0.5f;    // 揺れの強さ
+    [SerializeField] private Flowchart flowchart;
 
     private Vector3 originalPos;
     private float currentShakeTime = 0f;
@@ -46,7 +49,7 @@ public class StageManager : MonoBehaviour
         if(sceneName=="SweetScene")
         {
             limitTime=120.0f;
-            targetSubscribeMoney=1750;
+            targetSubscribeMoney=50;
         }
         else if(sceneName=="Stage2")
         {
@@ -133,6 +136,7 @@ public class StageManager : MonoBehaviour
     public void StageClear()
     {
         GameManager.isStartGame=false;
+    flowchart.ExecuteBlock("Energy"); // "energy" という名前のブロックを実行
         print("Clear");
 
     }
