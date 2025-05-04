@@ -46,25 +46,26 @@ public class StageManager : MonoBehaviour
         elapsedTime=0;
         string sceneName=SceneManager.GetActiveScene().name;
         gameUIManager=GameObject.Find("UIManager").GetComponent<GameUIManager>();
-        if(sceneName=="SweetScene")
+        Time.timeScale = 1f;
+        if (sceneName == "SweetScene")
         {
-            limitTime=120.0f;
-            targetSubscribeMoney=1250;
+            limitTime = 120.0f;
+            targetSubscribeMoney = 1250;
         }
-        else if(sceneName=="Stage2")
+        else if (sceneName == "Stage2")
         {
-            limitTime=120.0f;
-            targetSubscribeMoney=2000;
+            limitTime = 120.0f;
+            targetSubscribeMoney = 2000;
         }
-        else if(sceneName=="TestYuuyu2")
+        else if (sceneName == "TestYuuyu2")
         {
-            limitTime=5.0f;
-            targetSubscribeMoney=10;
+            limitTime = 5.0f;
+            targetSubscribeMoney = 10;
         }
-        else if(sceneName=="ComicScene")
+        else if (sceneName == "ComicScene")
         {
-            limitTime=5.0f;
-            targetSubscribeMoney=10;
+            limitTime = 5.0f;
+            targetSubscribeMoney = 10;
         }
         _koeruSubscriber=GameManager.koeruSubscriber;
         print(_koeruSubscriber);
