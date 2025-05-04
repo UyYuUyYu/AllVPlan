@@ -31,7 +31,7 @@ public class StageManager : MonoBehaviour
     private float currentShakeTime = 0f;
     private bool isShaking = false;
 
-    
+
     void Awake()
     {
         Cursor.visible = false; // カーソルを非表示
@@ -78,18 +78,18 @@ public class StageManager : MonoBehaviour
             // 時間に応じてカメラを移動
             targetCamera.transform.position += scrollDirection.normalized * scrollSpeed * Time.deltaTime;
         }
-        
+
         if((int)subscribeMoney>=targetSubscribeMoney)
         {
             if(GameManager.isStartGame)
             {
                 StageClear();
             }
-                
+
         }
         else
         {
-            
+
             DefaultIncreesSubscribe();
         }
 
@@ -123,17 +123,18 @@ public class StageManager : MonoBehaviour
         if(GameManager.isStartGame)
         {
             subscribeMoney+=_money;
+            Debug.Log("subscribeMoney"+subscribeMoney);
             subscribeMoneyText.text=subscribeMoney.ToString("f0");
-            gameUIManager.Subscribe(_userName,_money);
+      
         }
-       
+
     }
 
     public void StageClear()
     {
         GameManager.isStartGame=false;
         print("Clear");
-        
+
     }
     public void TriggerGameOver()
     {

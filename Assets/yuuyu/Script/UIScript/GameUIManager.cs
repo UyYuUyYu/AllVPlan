@@ -14,7 +14,9 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] float seconds = 1f;
 
     [SerializeField] GameObject popupPrefab;
-    [SerializeField] Transform popupParent; 
+    [SerializeField] Transform popupParent;
+
+    public StageManager stageManager;
 
     void Start()
     {
@@ -46,13 +48,15 @@ public class GameUIManager : MonoBehaviour
         }
     }
     //supsucibePopUpを表示する関数
-    public void Subscribe(string _userName,int _money)
+    public void Subscribe(string _userName, int _money)
     {
+        Debug.Log("aaa");
         GameObject popup = Instantiate(popupPrefab, popupParent);
         popup.transform.localPosition = new Vector3(0, 0, 0); // 表示位置調整
 
         SubscribePopup popupScript = popup.GetComponent<SubscribePopup>();
-        popupScript.Initialize($"{_userName}さん)",_money);
+        popupScript.Initialize($"{_userName}さん)", _money);
+        stageManager.AddSubscibe(_userName,_money);
     }
 
     [ContextMenu("popup")]
