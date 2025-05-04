@@ -32,7 +32,7 @@ public class StageManager : MonoBehaviour
     private bool isShaking = false;
 
 
-    void Awake()
+    public void StartGamedev()
     {
         Cursor.visible = false; // カーソルを非表示
         Cursor.lockState = CursorLockMode.Locked; // カーソルを画面中央に固定
@@ -46,7 +46,7 @@ public class StageManager : MonoBehaviour
         if(sceneName=="SweetScene")
         {
             limitTime=120.0f;
-            targetSubscribeMoney=1000;
+            targetSubscribeMoney=1750;
         }
         else if(sceneName=="Stage2")
         {
@@ -125,7 +125,7 @@ public class StageManager : MonoBehaviour
             subscribeMoney+=_money;
             Debug.Log("subscribeMoney"+subscribeMoney);
             subscribeMoneyText.text=subscribeMoney.ToString("f0");
-      
+
         }
 
     }
