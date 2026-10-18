@@ -450,7 +450,7 @@ MonoBehaviour:
   indentLevel: 0
   _sceneName:
     stringRef: {fileID: 0}
-    stringVal: SelectStgaeScene
+    stringVal: SelectStageScene
   loadingImage: {fileID: 0}
   sceneNameOLD: 
 --- !u!114 &1073642239
